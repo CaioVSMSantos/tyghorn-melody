@@ -1,0 +1,35 @@
+[
+    {
+        "file": "Donkey Kong Country 2 Diddys Kong Quest - Stickerbush Symphony.mid",
+        "songId": "stickerbrush-symphony",
+        "convertedAt": "2026-04-14",
+        "params": {
+            "bpm": 90,
+            "split": 60,
+            "grid": 0.25,
+            "key": "Bb"
+        }
+    },
+    {
+        "file": "Chrono Trigger - Peaceful Days.mid",
+        "songId": "peaceful-days",
+        "convertedAt": "2026-04-14",
+        "params": {
+            "bpm": 88,
+            "split": 60,
+            "grid": 0.25,
+            "key": "G"
+        }
+    },
+    {
+        "file": "Chrono Trigger - Frogs Theme.mid",
+        "songId": "frogs-theme",
+        "convertedAt": "2026-04-14",
+        "params": {
+            "bpm": 192,
+            "split": 60,
+            "grid": 0.25,
+            "key": "Am"
+        }
+    }
+]

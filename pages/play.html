@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <title>Prática — Tyghorn Melody</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../index.html" class="navbar-brand">🎹 Tyghorn Melody</a>
+        <div class="navbar-links">
+            <a href="./theory.html">Teoria</a>
+            <a href="./play.html" class="active">Prática</a>
+            <a href="./tools.html">Ferramentas</a>
+        </div>
+    </nav>
+
+    <!-- Aviso MIDI (se indisponível) -->
+    <div id="midi-warning" class="panel panel-info container-narrow" hidden>
+        <p>⚠️ Dispositivo MIDI não detectado. Você pode visualizar as músicas, mas não poderá praticar sem um teclado MIDI conectado.</p>
+    </div>
+
+    <!-- Vista: Catálogo de Músicas -->
+    <main id="view-catalog" class="container">
+        <div class="page-header">
+            <h1>🎵 Prática</h1>
+            <p>Selecione uma música para praticar.</p>
+        </div>
+        <div id="song-list">
+            <p class="text-muted">Carregando catálogo...</p>
+        </div>
+    </main>
+
+    <!-- Vista: Player -->
+    <div id="view-player" class="player-layout" hidden>
+        <!-- Header do Player -->
+        <div class="player-header">
+            <div class="player-header-left">
+                <button id="btn-back" class="btn" type="button" hidden>← Mudar música</button>
+                <div id="song-info" class="player-song-info"></div>
+            </div>
+            <div class="player-header-right">
+                <div id="midi-status" class="midi-status"></div>
+                <button id="btn-midi-reconnect" class="btn" type="button">🔄 Reconectar</button>
+            </div>
+        </div>
+
+        <!-- Seleção de Tracks -->
+        <div id="track-selection" class="player-tracks"></div>
+
+        <!-- Aviso de Range -->
+        <div id="range-warning" class="panel panel-info container-narrow" hidden>
+            <p>⚠️ Esta música contém notas fora do range do seu teclado. Algumas notas podem não ser tocáveis.</p>
+        </div>
+
+        <!-- Canvas -->
+        <div class="player-canvas-container">
+            <canvas id="game-canvas"></canvas>
+        </div>
+
+        <!-- Barra de Progresso / Seek -->
+        <div class="player-progress">
+            <div class="progress-bar" id="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <span class="progress-time" id="progress-time">0:00 / 0:00</span>
+        </div>
+
+        <!-- Controles -->
+        <div class="player-controls">
+            <div class="player-controls-left">
+                <button id="btn-play" class="btn btn-primary" type="button">⏵ Play</button>
+                <button id="btn-pause" class="btn" type="button" disabled>⏸ Pause</button>
+                <button id="btn-stop" class="btn" type="button" disabled>⏹ Stop</button>
+                <button id="btn-restart" class="btn" type="button">⟳ Reiniciar</button>
+            </div>
+            <div class="player-controls-center">
+                <button id="btn-speed-down" class="btn" type="button">−</button>
+                <span id="speed-display" class="speed-display">1.00x</span>
+                <button id="btn-speed-up" class="btn" type="button">+</button>
+            </div>
+            <div class="player-controls-right">
+                <span id="accuracy-display" class="accuracy-display">Acertos: 0/0 (0%)</span>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/play-app.js"></script>
+</body>
+</html>

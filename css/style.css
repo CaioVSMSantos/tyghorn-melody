@@ -1,0 +1,884 @@
+/* ============================================
+   Tyghorn Melody — Base Stylesheet
+   Estética: Synthwave Cyberpunk
+   ============================================ */
+
+/* --- Custom Properties (Paleta) --- */
+
+:root {
+    /* Fundos */
+    --bg-deep: #0f0a1a;
+    --bg-dark: #1a1230;
+    --bg-surface: #251b45;
+
+    /* Neons dominantes */
+    --neon-cyan: #00e5ff;
+    --neon-yellow: #ffe234;
+
+    /* Neons de apoio */
+    --neon-green: #39ff14;
+    --neon-pink: #ff2a6d;
+    --neon-purple: #c77dff;
+
+    /* Neutros */
+    --text-primary: #e8e4f0;
+    --text-secondary: #9e99ab;
+
+    /* Glow presets */
+    --glow-cyan: 0 0 8px rgba(0, 229, 255, 0.4);
+    --glow-yellow: 0 0 8px rgba(255, 226, 52, 0.4);
+    --glow-pink: 0 0 8px rgba(255, 42, 109, 0.4);
+}
+
+/* --- Reset Mínimo --- */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* --- Base --- */
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Tipografia --- */
+
+h1, h2, h3 {
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.1rem; }
+
+a {
+    color: var(--neon-cyan);
+    text-decoration: none;
+    transition: text-shadow 0.2s;
+}
+
+a:hover {
+    text-shadow: var(--glow-cyan);
+}
+
+/* --- Navbar --- */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid var(--neon-cyan);
+    box-shadow: 0 2px 12px rgba(0, 229, 255, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+}
+
+.navbar-brand:hover {
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+}
+
+.navbar-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar-links a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+    color: var(--neon-cyan);
+    border-bottom-color: var(--neon-cyan);
+    text-shadow: none;
+}
+
+/* --- Layout --- */
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    flex: 1;
+}
+
+/* --- Cards / Painéis --- */
+
+.panel {
+    background-color: var(--bg-dark);
+    border: 1px solid rgba(199, 125, 255, 0.15);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.panel-header {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+/* --- Info Panel --- */
+
+.panel-info {
+    background-color: rgba(0, 229, 255, 0.05);
+    border-color: rgba(0, 229, 255, 0.2);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.panel-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.panel-hint {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+/* --- Stats --- */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.6rem;
+    background-color: var(--bg-surface);
+    border-radius: 4px;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.stat-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--neon-cyan);
+}
+
+/* --- Status Badges --- */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.badge-success {
+    background-color: rgba(57, 255, 20, 0.1);
+    color: var(--neon-green);
+    border: 1px solid rgba(57, 255, 20, 0.25);
+}
+
+.badge-error {
+    background-color: rgba(255, 42, 109, 0.1);
+    color: var(--neon-pink);
+    border: 1px solid rgba(255, 42, 109, 0.25);
+}
+
+.badge-warn {
+    background-color: rgba(255, 226, 52, 0.1);
+    color: var(--neon-yellow);
+    border: 1px solid rgba(255, 226, 52, 0.25);
+}
+
+/* --- MIDI Monitor --- */
+
+.device-list {
+    list-style: none;
+}
+
+.device-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid rgba(199, 125, 255, 0.1);
+}
+
+.device-item:last-child {
+    border-bottom: none;
+}
+
+.device-name {
+    font-weight: 600;
+    color: var(--neon-yellow);
+}
+
+.device-detail {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+}
+
+.note-log {
+    font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+    font-size: 0.85rem;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 0.5rem;
+    background-color: var(--bg-deep);
+    border-radius: 4px;
+}
+
+.note-entry {
+    padding: 0.3rem 0.5rem;
+    border-bottom: 1px solid rgba(199, 125, 255, 0.06);
+    display: flex;
+    gap: 1rem;
+}
+
+.note-entry:last-child {
+    border-bottom: none;
+}
+
+.note-name {
+    color: var(--neon-cyan);
+    font-weight: 600;
+    min-width: 3.5rem;
+}
+
+.note-velocity {
+    color: var(--text-secondary);
+    min-width: 5rem;
+}
+
+.note-type-on {
+    color: var(--neon-green);
+}
+
+.note-type-off {
+    color: var(--text-secondary);
+}
+
+.note-log-empty {
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 1rem 0.5rem;
+    text-align: center;
+}
+
+.note-log-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+
+/* --- Botões --- */
+
+.btn {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--text-secondary);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.btn:hover {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.btn:disabled:hover {
+    border-color: var(--text-secondary);
+    color: var(--text-secondary);
+}
+
+/* --- Hub Cards --- */
+
+.hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.hub-card {
+    display: block;
+    background-color: var(--bg-dark);
+    border: 1px solid rgba(199, 125, 255, 0.15);
+    border-radius: 6px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.hub-card:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+    text-shadow: none;
+}
+
+.hub-card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.hub-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+}
+
+.hub-card-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* --- Page Header --- */
+
+.page-header {
+    margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+    margin-bottom: 0.35rem;
+}
+
+.page-header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* --- Catálogo de Músicas --- */
+
+.catalog-section {
+    margin-bottom: 1.5rem;
+}
+
+.catalog-section h2 {
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.catalog-card {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    background-color: var(--bg-dark);
+    border: 1px solid rgba(199, 125, 255, 0.15);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    color: var(--text-primary);
+}
+
+.catalog-card:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+.catalog-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.catalog-card-detail {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.catalog-card-meta {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+}
+
+.catalog-card-range {
+    color: var(--text-secondary);
+}
+
+.catalog-card-progress {
+    color: var(--neon-purple);
+    font-size: 0.8rem;
+}
+
+/* --- Player Layout --- */
+
+.player-layout {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 49px);
+    overflow: hidden;
+}
+
+.player-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--bg-dark);
+    border-bottom: 2px solid var(--neon-cyan);
+    box-shadow: 0 2px 12px rgba(0, 229, 255, 0.08);
+}
+
+.player-header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.player-header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.player-song-info {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.player-song-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-song-detail {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+}
+
+.player-tracks {
+    display: flex;
+    gap: 1.25rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--bg-deep);
+    border-bottom: 1px solid rgba(199, 125, 255, 0.08);
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+/* --- Track Groups (Radio) --- */
+
+.track-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.track-group-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.track-group-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.track-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.25rem 0.4rem;
+    border-radius: 4px;
+    transition: background-color 0.15s;
+}
+
+.track-option:hover {
+    background-color: rgba(199, 125, 255, 0.06);
+}
+
+.track-option input[type="radio"] {
+    accent-color: var(--neon-cyan);
+    width: 16px;
+    height: 16px;
+}
+
+.track-option input[type="radio"]:checked + span {
+    color: var(--neon-cyan);
+}
+
+.track-separator {
+    width: 1px;
+    align-self: stretch;
+    background-color: rgba(199, 125, 255, 0.15);
+    margin: 0 0.25rem;
+}
+
+.track-difficulty {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    margin-left: 0.25rem;
+}
+
+/* --- Tolerance Radio Group --- */
+
+.tolerance-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.tolerance-group-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.tolerance-options {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.tolerance-option {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    transition: background-color 0.15s;
+}
+
+.tolerance-option:hover {
+    background-color: rgba(199, 125, 255, 0.06);
+}
+
+.tolerance-option input[type="radio"] {
+    accent-color: var(--neon-yellow);
+    width: 14px;
+    height: 14px;
+}
+
+.tolerance-option input[type="radio"]:checked + span {
+    color: var(--neon-yellow);
+}
+
+.player-canvas-container {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    background-color: var(--bg-deep);
+}
+
+.player-canvas-container canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Progress / Seek Bar --- */
+
+.player-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.4rem 1.5rem;
+    background-color: var(--bg-dark);
+    border-top: 1px solid rgba(199, 125, 255, 0.08);
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background-color: var(--bg-surface);
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: height 0.15s;
+}
+
+.progress-bar:hover {
+    height: 12px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--neon-cyan);
+    border-radius: 4px;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 6px rgba(0, 229, 255, 0.3);
+}
+
+.progress-time {
+    font-family: "Cascadia Code", "Fira Code", monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    min-width: 7rem;
+    text-align: right;
+}
+
+/* --- MIDI Status --- */
+
+.midi-status {
+    display: flex;
+    align-items: center;
+}
+
+.midi-indicator {
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.midi-indicator.midi-on {
+    color: var(--neon-green);
+}
+
+.midi-indicator.midi-off {
+    color: var(--text-secondary);
+}
+
+/* --- Player Controls --- */
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--bg-dark);
+    border-top: 1px solid rgba(199, 125, 255, 0.1);
+}
+
+.player-controls-left,
+.player-controls-center,
+.player-controls-right {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.btn-primary {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+
+.btn-primary:hover {
+    box-shadow: var(--glow-cyan);
+}
+
+.speed-display {
+    font-family: "Cascadia Code", "Fira Code", monospace;
+    font-size: 1.1rem;
+    color: var(--neon-yellow);
+    min-width: 4rem;
+    text-align: center;
+}
+
+.accuracy-display {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.container-narrow {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+}
+
+/* --- Utilitários --- */
+
+.text-cyan { color: var(--neon-cyan); }
+.text-yellow { color: var(--neon-yellow); }
+.text-green { color: var(--neon-green); }
+.text-pink { color: var(--neon-pink); }
+.text-muted { color: var(--text-secondary); }
+
+/* --- Em Construção --- */
+
+.under-construction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    gap: 1rem;
+}
+
+.uc-icon {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.uc-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--neon-yellow);
+    text-shadow: var(--glow-yellow);
+}
+
+.uc-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    max-width: 480px;
+    line-height: 1.6;
+}
+
+.uc-btn {
+    margin-top: 0.5rem;
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+
+.uc-btn:hover {
+    box-shadow: var(--glow-cyan);
+}
+
+/* --- Fluxo de Configuração de Teclado --- */
+
+.setup-step {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.setup-step-instruction {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.setup-step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    min-width: 2rem;
+    border-radius: 50%;
+    background-color: var(--neon-cyan);
+    color: var(--bg-deep);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.setup-note-feedback {
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-deep);
+    border-radius: 4px;
+    border: 1px solid rgba(199, 125, 255, 0.12);
+}
+
+.setup-note-display {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.setup-note-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+    font-family: "Cascadia Code", "Fira Code", monospace;
+}
+
+.setup-note-midi {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-family: "Cascadia Code", "Fira Code", monospace;
+}
+
+.setup-step-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* --- Catálogo de Prática --- */
+
+/* Faixa de contexto no topo da tela de seleção de música */
+#view-catalog .page-header {
+    border-left: 3px solid var(--neon-cyan);
+    padding-left: 1rem;
+}
+

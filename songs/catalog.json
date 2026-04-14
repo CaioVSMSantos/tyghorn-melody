@@ -1,0 +1,43 @@
+{
+    "songs": [
+        {
+            "id": "stickerbrush-symphony",
+            "file": "games/stickerbrush-symphony.json",
+            "title": "Stickerbrush Symphony",
+            "artist": "David Wise",
+            "source": "Donkey Kong Country 2",
+            "category": "games",
+            "difficulty": "intermediate",
+            "midiRange": {
+                "lowest": 36,
+                "highest": 93
+            }
+        },
+        {
+            "id": "peaceful-days",
+            "file": "games/peaceful-days.json",
+            "title": "Peaceful Days",
+            "artist": "Yasunori Mitsuda",
+            "source": "Chrono Trigger",
+            "category": "games",
+            "difficulty": "beginner",
+            "midiRange": {
+                "lowest": 52,
+                "highest": 95
+            }
+        },
+        {
+            "id": "frogs-theme",
+            "file": "games/frogs-theme.json",
+            "title": "Frog's Theme",
+            "artist": "Yasunori Mitsuda",
+            "source": "Chrono Trigger",
+            "category": "games",
+            "difficulty": "intermediate",
+            "midiRange": {
+                "lowest": 39,
+                "highest": 85
+            }
+        }
+    ]
+}

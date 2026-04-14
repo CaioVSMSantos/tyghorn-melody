@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <title>Ferramentas — Tyghorn Melody</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../index.html" class="navbar-brand">🎹 Tyghorn Melody</a>
+        <div class="navbar-links">
+            <a href="./theory.html">Teoria</a>
+            <a href="./play.html">Prática</a>
+            <a href="./tools.html" class="active">Ferramentas</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>🔧 Teste de Conexão MIDI</h1>
+            <p>Verifique se seu teclado MIDI está sendo detectado e lido corretamente.</p>
+        </div>
+
+        <!-- Aviso de Permissão -->
+        <div class="panel panel-info">
+            <p>💡 Ao carregar esta página, o navegador solicitará permissão para acessar dispositivos MIDI.
+            Clique em <strong class="text-cyan">"Permitir"</strong> para que o teste funcione.</p>
+        </div>
+
+        <!-- Status do Navegador -->
+        <div class="panel">
+            <div class="panel-header">Suporte do Navegador</div>
+            <div id="browser-status">Verificando...</div>
+        </div>
+
+        <!-- Dispositivos Detectados -->
+        <div class="panel">
+            <div class="panel-header">Dispositivos Detectados</div>
+            <div id="devices-container">
+                <p class="text-muted">Aguardando acesso MIDI...</p>
+            </div>
+        </div>
+
+        <!-- Monitor de Teclas -->
+        <div class="panel">
+            <div class="panel-header">Monitor de Teclas</div>
+            <p class="panel-subtitle">Velocity (Vel) indica a intensidade da pressão na tecla — de 0 (sem força) a 127 (máxima).</p>
+            <div id="note-log" class="note-log">
+                <div class="note-log-empty">Pressione uma tecla no seu teclado MIDI...</div>
+            </div>
+            <div class="note-log-actions">
+                <button id="btn-clear-log" class="btn" disabled>Limpar</button>
+            </div>
+        </div>
+
+        <!-- Estatísticas da Sessão -->
+        <div class="panel">
+            <div class="panel-header">Estatísticas da Sessão</div>
+            <p class="panel-subtitle">O range do teclado é inferido pelas notas mais grave e aguda pressionadas.</p>
+            <div id="session-stats">
+                <p class="text-muted">Nenhuma tecla pressionada ainda.</p>
+            </div>
+        </div>
+
+        <!-- Configuração de Teclado -->
+        <div class="page-header" style="margin-top: 2rem;">
+            <h1>🎹 Configuração de Teclado</h1>
+            <p>Registre o range do seu teclado MIDI para que o aplicativo se adapte ao seu instrumento.</p>
+        </div>
+
+        <!-- Status da configuração atual -->
+        <div id="keyboard-config-status" class="panel">
+            <div class="panel-header">Teclado Configurado</div>
+            <div id="keyboard-config-display">
+                <p class="text-muted">Nenhum teclado configurado.</p>
+            </div>
+            <div style="margin-top: 1rem;">
+                <button id="btn-start-keyboard-setup" class="btn btn-primary" type="button">Iniciar configuração</button>
+            </div>
+        </div>
+
+        <!-- Fluxo de configuração (oculto por padrão) -->
+        <div id="keyboard-setup-flow" class="panel" style="display: none;">
+            <div class="panel-header">Configuração Guiada</div>
+
+            <!-- Etapa 1: nota mais grave -->
+            <div id="setup-step-low" class="setup-step">
+                <div class="setup-step-instruction">
+                    <span class="setup-step-number">1</span>
+                    <div>
+                        <strong>Pressione a tecla mais GRAVE do seu teclado</strong>
+                        <p class="panel-subtitle" style="margin-top: 0.25rem;">É a tecla mais à esquerda — o som mais grave que o instrumento produz.</p>
+                    </div>
+                </div>
+                <div id="setup-low-feedback" class="setup-note-feedback">
+                    <span class="text-muted">Aguardando...</span>
+                </div>
+                <div class="setup-step-actions">
+                    <button id="btn-confirm-low" class="btn btn-primary" type="button" disabled>Confirmar nota mais grave</button>
+                    <button id="btn-cancel-setup" class="btn" type="button">Cancelar</button>
+                </div>
+            </div>
+
+            <!-- Etapa 2: nota mais aguda -->
+            <div id="setup-step-high" class="setup-step" style="display: none;">
+                <div class="setup-step-instruction">
+                    <span class="setup-step-number">2</span>
+                    <div>
+                        <strong>Pressione a tecla mais AGUDA do seu teclado</strong>
+                        <p class="panel-subtitle" style="margin-top: 0.25rem;">É a tecla mais à direita — o som mais agudo que o instrumento produz.</p>
+                    </div>
+                </div>
+                <div id="setup-high-feedback" class="setup-note-feedback">
+                    <span class="text-muted">Aguardando...</span>
+                </div>
+                <div class="setup-step-actions">
+                    <button id="btn-confirm-high" class="btn btn-primary" type="button" disabled>Confirmar nota mais aguda</button>
+                    <button id="btn-back-to-low" class="btn" type="button">Voltar</button>
+                </div>
+            </div>
+
+            <!-- Etapa 3: confirmação final -->
+            <div id="setup-step-confirm" class="setup-step" style="display: none;">
+                <div class="setup-step-instruction">
+                    <span class="setup-step-number">3</span>
+                    <div>
+                        <strong>Confirme as informações do seu teclado</strong>
+                        <p class="panel-subtitle" style="margin-top: 0.25rem;">Revise o range detectado antes de salvar.</p>
+                    </div>
+                </div>
+                <div id="setup-summary" class="stats-grid" style="margin: 1rem 0;"></div>
+                <div class="setup-step-actions">
+                    <button id="btn-save-keyboard" class="btn btn-primary" type="button">Salvar configuração</button>
+                    <button id="btn-restart-setup" class="btn" type="button">Refazer</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gerenciamento de Dados -->
+        <div class="page-header" style="margin-top: 2rem;">
+            <h1>🗄️ Gerenciamento de Dados</h1>
+            <p>Gerencie os dados armazenados localmente pelo aplicativo.</p>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Limpar Progresso</div>
+            <p class="panel-subtitle">Remove o histórico de músicas praticadas (melhor acurácia, vezes tocadas). Suas configurações de teclado e preferências são mantidas.</p>
+            <button id="btn-clear-progress" class="btn" type="button">Limpar progresso</button>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Redefinir Tudo</div>
+            <p class="panel-subtitle">Remove todos os dados do aplicativo: progresso, configuração do teclado e preferências. O aplicativo voltará ao estado inicial.</p>
+            <button id="btn-reset-all" class="btn" type="button" style="border-color: var(--neon-pink); color: var(--neon-pink);">Redefinir tudo</button>
+        </div>
+    </main>
+
+    <script type="module" src="../js/tools.js"></script>
+</body>
+</html>
