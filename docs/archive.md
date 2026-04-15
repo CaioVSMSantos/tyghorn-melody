@@ -4,13 +4,52 @@ Registro de decisões tomadas e itens concluídos ao longo do projeto.
 
 ---
 
+## Registro de Tempo
+
+| Etapa | Data | Tempo Aprox. | Observações |
+|-------|------|-------------|-------------|
+| Kickoff e estrutura inicial | 2026-04-13 | ~2h | Criação do repositório, documentação base e alinhamento de visão |
+| Fase 1 — Fundação + Teste MIDI | 2026-04-13 | (incluso acima) | CSS base, hub page, teste MIDI funcional |
+| Fase 2 — Player de Prática (MVP) | 2026-04-13 ~ 2026-04-14 | ~1h | Engine, renderer, catálogo, músicas, controles completos |
+| Fase 2.5 — Refinamentos do Player | 2026-04-14 | ~1h | Tolerância configurável, gerenciamento de dados, ajustes visuais |
+| Fase 3 — MIDIs reais + Range 61 teclas | 2026-04-14 | ~2h | Conversor MIDI→JSON, re-transcrição de 3 músicas, range fixo C2-C7 |
+| Fase 4 — Configuração de teclado + Teoria (placeholder) | 2026-04-14 | ~1h | Fluxo guiado de detecção de range; página Em Construção para Teoria |
+| Deploy GitHub Pages | 2026-04-14 | — | Publicação e validação em produção |
+| Especificação do Módulo de Teoria Musical | 2026-04-14 ~ 2026-04-15 | ~2h | Spec completa, roadmap faseado, decisões de arquitetura |
+
+---
+
+## Catálogo de Músicas
+
+Referência consolidada das músicas disponíveis no player. Atualizar conforme novas músicas forem adicionadas.
+
+| Música | Origem | Categoria | Dificuldade | Beats | Tracks | Fonte |
+|--------|--------|-----------|-------------|-------|--------|-------|
+| Stickerbrush Symphony | Donkey Kong Country 2 | games | intermediate | 420 | 4 (2R + 2L) | MIDI |
+| Peaceful Days | Chrono Trigger | games | beginner | 220 | 4 (2R + 2L) | MIDI |
+| Frog's Theme | Chrono Trigger | games | intermediate | 288 | 4 (2R + 2L) | MIDI |
+
+### Detalhes de Conversão
+
+| Música | BPM | Notas (R/L) | Simplificado (R/L) | Split | Observações |
+|--------|-----|-------------|---------------------|-------|-------------|
+| Stickerbrush Symphony | 90 | 909 / 968 | 527 / 773 | N/A (2 tracks) | 13 notas em oitava 1 transpostas +12 |
+| Peaceful Days | 88 | 749 / 86 | 660 / 86 | C4 (60) | Track única dividida; melodia dominante |
+| Frog's Theme | 192 | 322 / 560 | 288 / 448 | C4 (60) | Track única; acompanhamento mais denso que melodia |
+
+- Todas convertidas via `tools/midi-to-json.py` a partir de MIDIs reais
+- 4 tracks por música: 2 por mão (standard + simplified)
+- Range: C2–C7 (MIDI 36–96), 61 teclas
+- Versões simplificadas geradas automaticamente (filtro por tempos fortes)
+
+---
+
 ## 2026-04-13 — Kickoff
 
 - Repositório criado e hospedado no GitHub (`CaioVSMSantos/tyghorn-melody`)
 - Stack definida: HTML + CSS + JavaScript puros, dados em JSON
 - Hospedagem planejada: GitHub Pages ou uso local (abrir HTML diretamente)
 - Armazenamento de dados do usuário: memória do navegador (localStorage)
-- Projeto de referência "Little Maestro" incluído no ambiente local (excluído do repositório via .gitignore)
 - Estrutura de documentação criada: README, roadmap, archive, CLAUDE.md
 
 ## 2026-04-13 — Especificações e Fase 1
@@ -215,3 +254,36 @@ Pipeline de conversão:
 - Configuração de teclado funcional, integrada em Ferramentas
 - Placeholder de Teoria Musical no ar
 - Auto-ajuste visual do player ao range do teclado permanece no backlog (Prioridade Média)
+
+## 2026-04-14 — Deploy no GitHub Pages
+
+Projeto publicado no GitHub Pages e validado pelo usuário. Todas as funcionalidades testadas e funcionais no ambiente de produção. Tempo total acumulado do projeto até o deploy: ~7 horas.
+
+## 2026-04-15 — Especificação do Módulo de Teoria Musical
+
+**Contexto:** Início da especificação do módulo educacional, a próxima grande iniciativa do projeto. Tempo total acumulado: ~9 horas.
+
+### Reestruturação de `docs/`
+
+Subpastas `docs/project/` e `docs/core/` eliminadas. Todos os documentos movidos para `docs/` diretamente — a quantidade de arquivos não justificava subdiretórios. Referências atualizadas em `CLAUDE.md`, `roadmap.md`, `architecture.md`.
+
+### Especificação — `docs/theory-spec.md`
+
+Documento completo cobrindo:
+
+- **Princípios pedagógicos**: linearidade sem bloqueio, conceito primeiro, múltiplas representações, conexão com teclado
+- **Estrutura**: hierarquia Módulo → Tópico → Bloco. 6 blocos por tópico (Neste Tópico, Conceito, Aprofundamento, Contexto Histórico, Exercícios, Navegação), sendo 2 colapsáveis
+- **Catálogo de 41+ tópicos** em 11 módulos (do básico ao avançado): som, teclado, notas, ritmo, leitura, intervalos, escalas, acordes, campo harmônico, progressões, tópicos avançados
+- **Exercícios interativos**: 3 widgets MIDI planejados (NoteDetector, SequenceChecker, ChordChecker), com fallback textual para usuários sem teclado
+
+### Decisões de arquitetura tomadas
+
+| Decisão | Escolha | Justificativa |
+|---------|---------|---------------|
+| Estrutura de páginas | Página shell dinâmica (`theory.html`) | Zero boilerplate, navegação via hash, manifesto JSON para links automáticos |
+| Formato do conteúdo | HTML fragments carregados via fetch | Conteúdo rico nativo, compatível com shell dinâmico |
+| Diagramas de teclado | HTML/CSS (divs estilizadas) | Simples, responsivo, sem dependências |
+
+### Roadmap atualizado
+
+Módulo de Teoria Musical dividido em 7 fases (A–G): estrutura/template → conteúdo fundamental → intermediário → avançado → exercícios interativos → tópicos avançados.

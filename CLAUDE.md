@@ -32,13 +32,7 @@ Aplicativo web para aprendizado de teoria musical e prática no teclado.
 - `pages/` — Páginas HTML (theory, play, tools). `index.html` fica na raiz
 - `songs/` — Músicas em formato JSON, organizadas por categoria (animes, games, movies, artists)
 - `data/` — JSONs de dados da aplicação (teoria musical, escalas, etc.)
-- `docs/project/` — Gestão do projeto (roadmap, diário de bordo)
-- `docs/core/` — Definições técnicas e visuais (arquitetura, design)
-- `Little Maestro (reference)/` — Projeto de referência (apenas local, excluído via .gitignore)
-
-### Referências
-
-- O projeto "Little Maestro" (presente no ambiente local) serve como referência conceitual, mas o Tyghorn Melody é uma criação independente.
+- `docs/` — Documentação do projeto (roadmap, archive, specs, arquitetura, design)
 
 ---
 

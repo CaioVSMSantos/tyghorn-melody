@@ -882,3 +882,222 @@ a:hover {
     padding-left: 1rem;
 }
 
+/* ============================================
+   Accordion — Seções colapsáveis (Recursos)
+   ============================================ */
+
+.accordion-section {
+    margin-bottom: 0.5rem;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.9rem 1.25rem;
+    background-color: var(--bg-surface);
+    border: 1px solid rgba(199, 125, 255, 0.15);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.accordion-header:hover {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 6px rgba(199, 125, 255, 0.15);
+}
+
+.accordion-header:focus-visible {
+    outline: 2px solid var(--neon-cyan);
+    outline-offset: 2px;
+}
+
+.accordion-header[aria-expanded="true"] {
+    border-radius: 6px 6px 0 0;
+    border-bottom-color: transparent;
+}
+
+.accordion-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.accordion-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.accordion-title {
+    font-weight: 600;
+}
+
+.accordion-count {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.accordion-arrow {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    transition: transform 0.2s;
+}
+
+.accordion-content {
+    background-color: var(--bg-dark);
+    border: 1px solid rgba(199, 125, 255, 0.15);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    padding: 1.25rem;
+}
+
+.accordion-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.accordion-empty {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+}
+
+.accordion-group-separator {
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(199, 125, 255, 0.2),
+        transparent
+    );
+    margin: 1.25rem 0;
+}
+
+/* --- Accordion: Arquivo --- */
+
+.accordion-header-archive {
+    background-color: var(--bg-dark);
+    border-color: rgba(199, 125, 255, 0.1);
+}
+
+.archive-group-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid rgba(199, 125, 255, 0.08);
+}
+
+.archive-group-label:first-child {
+    margin-top: 0;
+}
+
+/* ============================================
+   Resource Items — Itens individuais
+   ============================================ */
+
+.resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.resource-item {
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-surface);
+    border-radius: 4px;
+    border-left: 3px solid rgba(199, 125, 255, 0.2);
+}
+
+.resource-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.2rem;
+}
+
+.resource-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.resource-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.3rem;
+}
+
+.resource-description {
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin-bottom: 0.4rem;
+}
+
+.resource-search-hint {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+}
+
+.resource-link-row {
+    font-size: 0.82rem;
+    margin-top: 0.2rem;
+}
+
+.resource-link {
+    font-size: 0.82rem;
+    word-break: break-all;
+}
+
+/* ============================================
+   Badges — Idioma e Status (Recursos)
+   ============================================ */
+
+.badge-lang {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    color: var(--text-secondary);
+    border: 1px solid rgba(199, 125, 255, 0.25);
+    line-height: 1.3;
+}
+
+.badge-status-outdated {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    color: var(--neon-yellow);
+    border: 1px solid rgba(255, 226, 52, 0.3);
+    line-height: 1.3;
+}
+
+.badge-status-unavailable {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    color: var(--neon-pink);
+    border: 1px solid rgba(255, 42, 109, 0.3);
+    line-height: 1.3;
+}
+
