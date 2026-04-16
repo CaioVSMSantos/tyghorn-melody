@@ -95,27 +95,37 @@ Cada tópico é composto pelos seguintes blocos, na ordem apresentada:
 
 #### Diretrizes por Bloco
 
+> **Diretriz geral de profundidade (decisão 2026-04-15):** Todo conteúdo deve ser completo, explicativo e abordar o assunto por múltiplos ângulos. Não simplificar excessivamente nem temer extensão quando ela serve à compreensão genuína. O leitor é leigo em música mas capaz de absorver conteúdo denso — a profundidade é um valor, não um problema. Essa diretriz se aplica a todos os blocos, com ênfase especial no Aprofundamento.
+
 **Conceito:**
-- Ir direto ao ponto — parágrafos curtos, listas, subtítulos
-- Incluir exemplos concretos, não apenas definições abstratas
+- Explicações completas e auto-suficientes — o leitor deve sair do bloco confortável com o tema
+- Abordar o assunto por diferentes ângulos quando necessário (definição + exemplo concreto + analogia + representação visual)
+- Parágrafos curtos, listas, subtítulos, tabelas — usar a estrutura que melhor serve cada parte da explicação
+- Incluir exemplos concretos e tangíveis, não apenas definições abstratas
 - Quando relevante, mostrar o conceito no teclado visualmente (diagrama integrado)
 - Responder: o que é, por que importa, como funciona, como se aplica
-- Deve ser suficiente para o leitor se sentir confortável com o tema nas situações mais comuns
+- Não temer extensão: um Conceito de 15 parágrafos que explica bem é melhor que 3 parágrafos que deixam dúvidas
 
 **Aprofundamento:**
-- Maior densidade é aceitável — o leitor está optando por mais
-- Conectar o tópico a conceitos mais amplos ou avançados
-- Explorar casos especiais, exceções, variações
+- Mergulho real — técnico pesado, filosófico, conexões interdisciplinares
+- Este é o espaço para a "viagem a mais": o pensamento e entendimento mais profundos que vão além do operacional
+- Maior densidade e complexidade são esperadas — o leitor está optando conscientemente por mais
+- Conectar o tópico a conceitos mais amplos, avançados ou de outras disciplinas (física, matemática, psicologia, filosofia)
+- Explorar casos especiais, exceções, variações, debates teóricos
 - Pode referenciar tópicos futuros como "preview"
+- Extensão generosa: se o assunto render, explorar sem pressa
 
 **Contexto Histórico:**
-- Focar em "por que as coisas são como são"
+- Narrativa completa, não nota de rodapé decorativa
+- Contar a história com personagens, datas, evolução e impacto
+- Focar em "por que as coisas são como são" — conectar o passado ao presente
 - Mencionar divergências entre tradições quando existirem
-- Manter relevante — evitar digressões puramente acadêmicas
-- OK não incluir este bloco se o tópico não tiver história interessante
+- OK não incluir este bloco se o tópico não tiver história genuinamente interessante
 
 **Exercícios:**
-- Todo exercício MIDI deve ter alternativa textual/visual para usuários sem teclado conectado
+- Exercícios textuais simples (quiz conceitual, identificação) usando `<details>/<summary>` nativo — pergunta visível, resposta colapsada
+- Podem incluir exercícios de "escuta ativa" (instruções para o leitor praticar com músicas reais)
+- Todo exercício MIDI (futuro, Fase F) deve ter alternativa textual/visual para usuários sem teclado conectado
 - Exercícios exclusivamente MIDI devem ser claramente identificados
 - Progressão de complexidade: quiz simples → identificação → tocar notas → sequências → acordes
 

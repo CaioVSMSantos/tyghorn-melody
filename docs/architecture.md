@@ -17,7 +17,7 @@ Aplicação multi-página. `index.html` na raiz como ponto de entrada; demais p�
 | Página | Arquivo | Script | Responsabilidade |
 |--------|---------|--------|-----------------|
 | Hub | `index.html` | — | Ponto de entrada. Navegação para as demais seções |
-| Teoria | `pages/theory.html` | — | Conteúdo educacional de teoria musical |
+| Teoria | `pages/theory.html` | `js/theory.js`, `js/keyboard-diagram.js` | Shell dinâmico: manifesto, sidebar, roteamento por hash, fetch de HTML fragments |
 | Prática | `pages/play.html` | `js/play-app.js` | Player de músicas com acompanhamento MIDI |
 | Ferramentas | `pages/tools.html` | `js/tools.js` | Teste de conexão MIDI, utilitários |
 | Recursos | `pages/resources.html` | `js/resources.js` | Curadoria de recursos externos para aprofundamento |
@@ -43,11 +43,17 @@ tyghorn-melody/
 │   ├── player.js           ← Engine do player (timeline, matching, controles)
 │   ├── renderer.js         ← Rendering Canvas 2D (falling notes)
 │   ├── play-app.js         ← Orquestração da página de prática
-│   └── tools.js            ← Lógica da página de ferramentas
+│   ├── tools.js            ← Lógica da página de ferramentas
+│   ├── theory.js           ← Shell dinâmico do módulo de teoria (manifesto, routing, sidebar)
+│   └── keyboard-diagram.js ← Componente reutilizável de diagrama de teclado (HTML/CSS)
 ├── pages/
 │   ├── theory.html
 │   ├── play.html
-│   └── tools.html
+│   ├── tools.html
+│   └── resources.html
+├── content/
+│   └── theory/             ← HTML fragments dos tópicos (1-1.html, 2-1.html, etc.)
+│       └── *.html
 ├── songs/
 │   ├── catalog.json        ← Manifesto de músicas disponíveis
 │   ├── games/
@@ -63,8 +69,8 @@ tyghorn-melody/
 ├── tools/
 │   └── midi-to-json.py     ← Conversor MIDI→JSON (Python puro, sem deps)
 ├── data/
-│   ├── resources.json     ← Catálogo de recursos externos (categorias + itens)
-│   └── (JSONs de teoria musical, escalas, acordes — futuro)
+│   ├── resources.json      ← Catálogo de recursos externos (categorias + itens)
+│   └── theory-manifest.json ← Manifesto de tópicos de teoria (módulos, IDs, pré-requisitos)
 └── docs/
     ├── roadmap.md
     ├── archive.md
@@ -91,6 +97,8 @@ Todos os scripts usam ES modules (`type="module"`).
 | `play-app.js` | `storage.js`, `song-loader.js`, `player.js`, `renderer.js`, `midi.js` | Orquestra catálogo, seleção de tracks, controles, MIDI, progress bar |
 | `tools.js` | `midi.js`, `storage.js` | Teste de conexão MIDI, monitor de notas, estatísticas de sessão, gerenciamento de dados (reset) |
 | `resources.js` | — | Carregamento e renderização do catálogo de recursos a partir de JSON |
+| `theory.js` | — | Shell dinâmico de teoria: carrega manifesto, gera sidebar, roteamento por hash, fetch de HTML fragments, breadcrumb, navegação anterior/próximo |
+| `keyboard-diagram.js` | — | Componente reutilizável de diagrama de teclado. Gera HTML/CSS a partir de parâmetros (range, notas destacadas, cores). Auto-inicializa via `data-` attributes e MutationObserver |
 
 ---
 
@@ -120,7 +128,7 @@ As músicas são arquivos `.json` em `songs/`, organizados por categoria em subp
 | Medida | Implementação |
 |--------|---------------|
 | Content Security Policy | `<meta http-equiv="Content-Security-Policy" content="default-src 'self'">` em todas as páginas |
-| Sem innerHTML com dados externos | Todo conteúdo dinâmico usa `createElement` + `textContent` |
+| Sem innerHTML com dados externos | Todo conteúdo dinâmico usa `createElement` + `textContent`. Exceção: `theory.js` insere HTML fragments via `innerHTML` — conteúdo do próprio domínio (restrito por CSP `default-src 'self'`) |
 | Scripts externos proibidos | CSP `default-src 'self'` bloqueia scripts de terceiros |
 | Sem inline scripts | Todos os scripts em arquivos `.js` separados (conformidade CSP) |
 

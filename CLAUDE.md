@@ -32,6 +32,7 @@ Aplicativo web para aprendizado de teoria musical e prática no teclado.
 - `pages/` — Páginas HTML (theory, play, tools). `index.html` fica na raiz
 - `songs/` — Músicas em formato JSON, organizadas por categoria (animes, games, movies, artists)
 - `data/` — JSONs de dados da aplicação (teoria musical, escalas, etc.)
+- `content/theory/` — HTML fragments dos tópicos de teoria musical (carregados via fetch pelo shell)
 - `docs/` — Documentação do projeto (roadmap, archive, specs, arquitetura, design)
 
 ---

@@ -15,11 +15,11 @@ Decisões de arquitetura e implementação do esqueleto técnico. Pré-requisito
 - [x] Decidir estrutura de páginas → **Página shell dinâmica** (`theory.html` + fetch de fragmentos)
 - [x] Decidir formato do conteúdo → **HTML fragments** (sem head/body, carregados no shell)
 - [x] Decidir implementação de diagramas de teclado → **HTML/CSS** (divs estilizadas + componente JS)
-- [ ] Manifesto JSON de tópicos (índice com IDs, nomes, módulos, pré-requisitos — navegação automática)
-- [ ] Implementar shell HTML (`theory.html`) com container, sidebar, breadcrumb, anterior/próximo
-- [ ] CSS do módulo de teoria (layout de tópicos, blocos colapsáveis, callouts, diagramas)
-- [ ] Navegação: índice de módulos/tópicos, breadcrumb, botões anterior/próximo
-- [ ] Componente reutilizável de diagrama de teclado (teclas destacadas por cor/nota)
+- [x] Manifesto JSON de tópicos (`data/theory-manifest.json` — 11 módulos, 41 tópicos, pré-requisitos)
+- [x] Implementar shell HTML (`theory.html`) com container, sidebar, breadcrumb, anterior/próximo
+- [x] CSS do módulo de teoria (layout de tópicos, blocos colapsáveis, callouts, diagramas)
+- [x] Navegação: índice de módulos/tópicos, breadcrumb, botões anterior/próximo (`js/theory.js`)
+- [x] Componente reutilizável de diagrama de teclado (`js/keyboard-diagram.js`)
 
 ### Fase B — Conteúdo Fundamental (Módulos 1–3)
 
@@ -71,19 +71,6 @@ Expansão futura. Sem prazo definido.
 ## Backlog Geral
 
 *Outros itens do projeto, independentes do módulo de teoria.*
-
-### Módulo de Recursos
-
-Especificação completa em `docs/resources-spec.md`. Página de curadoria com 18 categorias de recursos externos (livros, cursos, vídeos, ferramentas, comunidades, entretenimento, etc.). Dados em JSON, render dinâmico, seções colapsáveis.
-
-- [x] Implementar shell HTML (`pages/resources.html`) com navbar atualizada (4 itens)
-- [x] Implementar `js/resources.js` (fetch JSON, render, accordion, validação)
-- [x] Criar `data/resources.json` com schema de categorias e recursos
-- [x] Adicionar card de Recursos no hub (`index.html`)
-- [x] Atualizar navbar em todas as páginas existentes (theory, play, tools)
-- [x] CSS dos componentes de recursos (accordion, badges, archive)
-- [x] Curadoria e pesquisa de recursos reais para todas as 18 categorias (83 recursos)
-- [ ] Revisão final de links e disponibilidade
 
 ### Prioridade Média
 

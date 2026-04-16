@@ -16,6 +16,7 @@ Registro de decisões tomadas e itens concluídos ao longo do projeto.
 | Fase 4 — Configuração de teclado + Teoria (placeholder) | 2026-04-14 | ~1h | Fluxo guiado de detecção de range; página Em Construção para Teoria |
 | Deploy GitHub Pages | 2026-04-14 | — | Publicação e validação em produção |
 | Especificação do Módulo de Teoria Musical | 2026-04-14 ~ 2026-04-15 | ~2h | Spec completa, roadmap faseado, decisões de arquitetura |
+| Módulo de Recursos (completo) | 2026-04-15 | ~3h | Spec, implementação, curadoria (83 recursos, 18 categorias), revisão de links |
 
 ---
 
@@ -287,3 +288,45 @@ Documento completo cobrindo:
 ### Roadmap atualizado
 
 Módulo de Teoria Musical dividido em 7 fases (A–G): estrutura/template → conteúdo fundamental → intermediário → avançado → exercícios interativos → tópicos avançados.
+
+## 2026-04-15 — Módulo de Recursos (Completo)
+
+**Contexto:** Página de curadoria de recursos externos para aprofundamento musical. Especificação, implementação completa e curadoria de conteúdo realizadas. Tempo total acumulado do projeto: ~12 horas.
+
+### Especificação — `docs/resources-spec.md`
+
+Documento completo cobrindo:
+
+- **Princípios de curadoria**: 5 critérios de inclusão, política de idioma (pt-BR preferencial), política de links (título + searchHint > link direto)
+- **18 categorias** em 6 grupos lógicos: Estudo (livros, revistas, cursos, vídeos, podcasts, documentários), Ferramentas (partituras, notação, apps), Equipamento (lojas, manutenção), Cultura (músicos, entretenimento, jogos, eventos), Comunidade (fóruns, profissionalização), Público Específico (crianças)
+- **Arquitetura**: JSON + render dinâmico, accordion colapsável, badges de idioma/status, seção de arquivo para recursos indisponíveis
+- **Ciclo de manutenção**: revisão semestral, ciclo de vida active → outdated → unavailable
+
+### Implementação
+
+| Arquivo | Responsabilidade |
+|---------|-----------------|
+| `pages/resources.html` | Shell HTML com navbar atualizada (4 itens) |
+| `js/resources.js` | Fetch JSON, renderização dinâmica, accordion, validação de schema |
+| `data/resources.json` | 83 recursos em 18 categorias, metadados completos |
+| `css/style.css` | Componentes: accordion, badges (idioma, status), cards de recurso, seção de arquivo |
+
+### Decisões tomadas
+
+| Decisão | Escolha | Justificativa |
+|---------|---------|---------------|
+| Dados dos recursos | JSON + render dinâmico | 18 categorias com metadados por recurso tornam JSON mais manutenível. Pattern existente (catalog.json) |
+| Seções colapsáveis | Accordion JS | JS já renderiza dados — lógica de accordion é trivial. Permite animação e estilo consistente |
+| Navbar | 4 itens (Teoria, Prática, Ferramentas, Recursos) | Navbar limpa, acesso direto sem fricção |
+| Badges de idioma | Somente para não-PT-BR | Maioria PT-BR — marcar a exceção é mais eficiente |
+| Status de recursos | Inline (outdated) + Arquivo (unavailable) | Gradação: problemas leves ficam visíveis com aviso; indisponíveis migram para arquivo |
+
+### Curadoria
+
+- 83 recursos pesquisados e verificados manualmente
+- Cobertura das 18 categorias planejadas
+- Links validados quanto à disponibilidade
+- Recursos em PT-BR priorizados; recursos em inglês incluídos com badge [EN] quando qualidade justifica
+- Revisão final de links e disponibilidade concluída
+
+**Estado ao final:** Módulo de Recursos 100% completo. Todas as tarefas do roadmap concluídas.

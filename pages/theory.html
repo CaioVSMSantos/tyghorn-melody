@@ -18,21 +18,22 @@
         </div>
     </nav>
 
-    <main class="container">
-        <div class="page-header">
-            <h1>📖 Teoria Musical</h1>
-            <p>Fundamentos de teoria musical para iniciantes ao teclado.</p>
-        </div>
+    <div class="theory-layout">
+        <!-- Sidebar: índice de módulos e tópicos -->
+        <aside class="theory-sidebar" id="theory-sidebar">
+            <div class="sidebar-title">Módulos</div>
+            <nav id="sidebar-nav" aria-label="Índice de tópicos"></nav>
+        </aside>
 
-        <div class="under-construction">
-            <div class="uc-icon">🚧</div>
-            <h2 class="uc-title">Em Construção</h2>
-            <p class="uc-desc">
-                Este módulo está sendo desenvolvido. Em breve você encontrará aqui
-                conteúdo sobre notas, escalas, acordes, tempo, ritmo e leitura de partituras.
-            </p>
-            <a href="../index.html" class="btn uc-btn">Voltar ao início</a>
-        </div>
-    </main>
+        <!-- Área principal de conteúdo -->
+        <main class="theory-content" id="theory-content">
+            <!-- Conteúdo carregado dinamicamente pelo JS:
+                 - Índice de módulos (quando nenhum tópico selecionado)
+                 - Tópico individual (breadcrumb + conteúdo + navegação) -->
+        </main>
+    </div>
+
+    <script type="module" src="../js/theory.js"></script>
+    <script type="module" src="../js/keyboard-diagram.js"></script>
 </body>
 </html>
