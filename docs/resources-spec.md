@@ -316,13 +316,35 @@ Cada categoria abaixo inclui: definição, público-alvo, diretrizes de curadori
 
 ---
 
-#### 4.2.7 Partituras e Songbooks
+#### 4.2.7 MIDIs e Partituras — Jogos, Anime e Filmes
+
+| Campo | Valor |
+|-------|-------|
+| **ID** | `media-sheets` |
+| **Grupo** | `tools` |
+| **Ordem** | 1 |
+| **Icone** | `🎮` |
+| **Descrição (página)** | Fontes de arquivos MIDI e partituras de músicas de videogames, animes, filmes e séries. De arquivos MIDI para prática no Synthesia ou no Tyghorn Melody a partituras em PDF para estudo e referência. |
+
+**Diretrizes de curadoria:**
+- Foco em fontes gratuitas e comunitárias — o público-alvo são praticantes, não profissionais
+- Priorizar sites com boa cobertura de jogos, animes e filmes/séries
+- Distinguir entre fontes de MIDI (para prática/conversão) e partituras (para estudo visual)
+- Sites que oferecem ambos os formatos (MIDI + PDF) são um diferencial
+- Verificar legitimidade e segurança dos sites (domínios conhecidos, comunidades estabelecidas)
+- Pirataria de soundtracks comerciais (MP3/FLAC de álbuns oficiais) está fora do escopo — o foco é MIDI e partituras de arranjos
+
+**Perfil de recurso esperado:** arquivos de MIDIs de jogos (VGMusic), partituras de anime/jogos (Ichigo's, NinSheetMusic), sites com player integrado (BitMidi), fontes mistas MIDI+PDF (TuneOnMusic).
+
+---
+
+#### 4.2.8 Partituras e Songbooks
 
 | Campo | Valor |
 |-------|-------|
 | **ID** | `sheet-music` |
 | **Grupo** | `tools` |
-| **Ordem** | 1 |
+| **Ordem** | 2 |
 | **Icone** | `🎼` |
 | **Descrição (página)** | Fontes de partituras gratuitas e pagas para piano e teclado. De domínio público a arranjos contemporâneos — material para tocar além do catálogo do Tyghorn Melody. |
 
@@ -337,7 +359,7 @@ Cada categoria abaixo inclui: definição, público-alvo, diretrizes de curadori
 
 ---
 
-#### 4.2.8 Software de Notação Musical
+#### 4.2.9 Software de Notação Musical
 
 | Campo | Valor |
 |-------|-------|
@@ -357,7 +379,7 @@ Cada categoria abaixo inclui: definição, público-alvo, diretrizes de curadori
 
 ---
 
-#### 4.2.9 Aplicativos e Ferramentas Online
+#### 4.2.10 Aplicativos e Ferramentas Online
 
 | Campo | Valor |
 |-------|-------|
@@ -378,7 +400,7 @@ Cada categoria abaixo inclui: definição, público-alvo, diretrizes de curadori
 
 ---
 
-#### 4.2.10 Lojas e Sites de Instrumentos
+#### 4.2.11 Lojas e Sites de Instrumentos
 
 | Campo | Valor |
 |-------|-------|
@@ -399,7 +421,7 @@ Cada categoria abaixo inclui: definição, público-alvo, diretrizes de curadori
 
 ---
 
-#### 4.2.11 Guias de Manutenção
+#### 4.2.12 Guias de Manutenção
 
 | Campo | Valor |
 |-------|-------|
@@ -420,7 +442,7 @@ Cada categoria abaixo inclui: definição, público-alvo, diretrizes de curadori
 
 ---
 
-#### 4.2.12 Músicos Recomendados
+#### 4.2.13 Músicos Recomendados
 
 | Campo | Valor |
 |-------|-------|
@@ -441,7 +463,7 @@ Cada categoria abaixo inclui: definição, público-alvo, diretrizes de curadori
 
 ---
 
-#### 4.2.13 Filmes, Séries e Entretenimento
+#### 4.2.14 Filmes, Séries e Entretenimento
 
 | Campo | Valor |
 |-------|-------|
@@ -463,7 +485,7 @@ Cada categoria abaixo inclui: definição, público-alvo, diretrizes de curadori
 
 ---
 
-#### 4.2.14 Jogos Musicais
+#### 4.2.15 Jogos Musicais
 
 | Campo | Valor |
 |-------|-------|
@@ -484,7 +506,7 @@ Cada categoria abaixo inclui: definição, público-alvo, diretrizes de curadori
 
 ---
 
-#### 4.2.15 Concertos, Festivais e Eventos
+#### 4.2.16 Concertos, Festivais e Eventos
 
 | Campo | Valor |
 |-------|-------|
@@ -506,7 +528,7 @@ Cada categoria abaixo inclui: definição, público-alvo, diretrizes de curadori
 
 ---
 
-#### 4.2.16 Comunidades e Fóruns
+#### 4.2.17 Comunidades e Fóruns
 
 | Campo | Valor |
 |-------|-------|
@@ -527,7 +549,7 @@ Cada categoria abaixo inclui: definição, público-alvo, diretrizes de curadori
 
 ---
 
-#### 4.2.17 Profissionalização
+#### 4.2.18 Profissionalização
 
 | Campo | Valor |
 |-------|-------|
@@ -548,7 +570,7 @@ Cada categoria abaixo inclui: definição, público-alvo, diretrizes de curadori
 
 ---
 
-#### 4.2.18 Recursos para Crianças e Pais
+#### 4.2.19 Recursos para Crianças e Pais
 
 | Campo | Valor |
 |-------|-------|
@@ -863,7 +885,7 @@ Decisões tomadas durante a especificação, com justificativa.
 
 | # | Decisão | Alternativa rejeitada | Justificativa |
 |---|---------|----------------------|---------------|
-| 1 | JSON + render dinâmico para dados dos recursos | HTML estático | 18 categorias com metadados por recurso (status, idioma, data) tornam o JSON mais manutenível. Pattern já existente no projeto (catalog.json). Facilita contagem automática e filtragem futura |
+| 1 | JSON + render dinâmico para dados dos recursos | HTML estático | 19 categorias com metadados por recurso (status, idioma, data) tornam o JSON mais manutenível. Pattern já existente no projeto (catalog.json). Facilita contagem automática e filtragem futura |
 | 2 | Accordion JS para seções colapsáveis | `<details>/<summary>` HTML nativo | Como o JS já renderiza os dados do JSON, adicionar lógica de accordion é trivial. Permite animação consistente e estilo alinhado com o restante do projeto. A theory-spec também prevê blocos colapsáveis — mesma solução para ambos garante consistência |
 | 3 | Hub card + navbar (4 itens) | Apenas hub card | Navbar com 4 itens continua limpa. Recursos pode ser acessado a qualquer momento durante o estudo, esconder atrás do hub adiciona fricção desnecessária |
 | 4 | Badge textual somente para idiomas não-PT-BR | Badge em todos os recursos / emoji de bandeira | Maioria será PT-BR, marcar a exceção é mais eficiente. Badge textual é mais sóbrio que bandeiras e alinhado com a estética do projeto |

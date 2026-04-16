@@ -330,3 +330,43 @@ Documento completo cobrindo:
 - Revisão final de links e disponibilidade concluída
 
 **Estado ao final:** Módulo de Recursos 100% completo. Todas as tarefas do roadmap concluídas.
+
+## 2026-04-16 — Ajustes Menores e Decisões
+
+### Disclaimer na Home Page
+
+Footer adicionado ao `index.html` com texto de disclaimer: projeto de hobby, sem fins lucrativos, direitos pertencem aos autores, informações podem conter imprecisões. CSS discreto (`.site-footer`) com opacidade reduzida.
+
+### Nova Categoria no Módulo de Recursos
+
+Categoria `media-sheets` ("MIDIs e Partituras — Jogos, Anime e Filmes") adicionada ao grupo `tools` com 7 novos recursos:
+- VGMusic.com (MIDIs de jogos, 31.000+ arquivos)
+- NinSheetMusic.org (partituras de jogos, curadoria comunitária)
+- Khinsider (soundtracks completas em áudio + seção MIDI)
+- The Midi Shrine (MIDIs de jogos e animes)
+- Ichigo's Sheet Music (partituras de anime e jogos, desde 2001)
+- TuneOnMusic (partituras PDF + MIDI de anime, jogos e filmes)
+- BitMidi (biblioteca MIDI com player no navegador)
+
+Total de recursos: 90 (anteriormente 83). Total de categorias: 19 (anteriormente 18).
+
+### Pipeline Dual de Transcrição: MIDI + Partitura PDF
+
+**Decisão registrada para implementação futura.**
+
+O assistente demonstrou capacidade de leitura visual de partituras em PDF — identificando tonalidade, compasso, andamento, dinâmicas, articulações e notas individuais a partir da imagem renderizada.
+
+**Pipeline proposto (futuro):**
+1. **Fonte primária**: Conversão MIDI → JSON via `tools/midi-to-json.py` (dados digitais, conversão determinística)
+2. **Fonte de verificação**: Leitura visual da partitura PDF correspondente para validar:
+   - Correspondência de notas e ritmos entre MIDI e partitura
+   - Dinâmicas e articulações (informação que o MIDI sozinho não captura)
+   - Variações de dificuldade e intenção musical do arranjador
+3. **Resultado**: Maior confiança na fidelidade da transcrição JSON
+
+**Tradeoff**: A leitura de PDF é lenta e sujeita a interpretação, por isso serve como verificação (não fonte primária). O MIDI permanece como entrada principal por ser dados puros.
+
+### Alterações no Roadmap
+
+- **Removido**: "Upload de MIDI pelo usuário" — funcionalidade trabalhosa que desvia do propósito do projeto (catálogo curado de músicas para prática)
+- **Adicionado (Prioridade Alta)**: Refatoração e reorganização do código — separar arquivos grandes, revisar responsabilidades de módulos, boas práticas

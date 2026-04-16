@@ -1,7 +1,7 @@
 {
   "metadata": {
     "lastReviewDate": "2026-04",
-    "totalResources": 83,
+    "totalResources": 90,
     "version": "1.0"
   },
   "categories": [
@@ -54,12 +54,20 @@
       "order": 6
     },
     {
+      "id": "media-sheets",
+      "name": "MIDIs e Partituras — Jogos, Anime e Filmes",
+      "icon": "🎮",
+      "description": "Fontes de arquivos MIDI e partituras de músicas de videogames, animes, filmes e séries. De arquivos MIDI para prática no Synthesia ou no Tyghorn Melody a partituras em PDF para estudo e referência.",
+      "group": "tools",
+      "order": 1
+    },
+    {
       "id": "sheet-music",
       "name": "Partituras e Songbooks",
       "icon": "🎼",
       "description": "Fontes de partituras gratuitas e pagas para piano e teclado. De domínio público a arranjos contemporâneos — material para tocar além do catálogo do Tyghorn Melody.",
       "group": "tools",
-      "order": 1
+      "order": 2
     },
     {
       "id": "notation-software",
@@ -67,7 +75,7 @@
       "icon": "🖊️",
       "description": "Programas e aplicativos para escrever, editar e visualizar partituras musicais. Para quem deseja praticar escrita musical ou criar seus próprios arranjos.",
       "group": "tools",
-      "order": 2
+      "order": 3
     },
     {
       "id": "apps-tools",
@@ -75,7 +83,7 @@
       "icon": "📱",
       "description": "Aplicativos e ferramentas digitais para treinamento auditivo, identificação de acordes, prática rítmica e outros exercícios musicais. Complementos para o estudo diário.",
       "group": "tools",
-      "order": 3
+      "order": 4
     },
     {
       "id": "stores",
@@ -581,6 +589,104 @@
       "searchHint": "Disponível na Netflix. Buscar: 'What Happened Miss Simone Netflix'",
       "status": "active",
       "tags": ["piano", "jazz", "biografia", "história"],
+      "addedDate": "2026-04",
+      "lastChecked": "2026-04"
+    },
+    {
+      "id": "media-001",
+      "title": "VGMusic.com",
+      "subtitle": "Video Game Music Archive — Ativo desde 1996",
+      "description": "O maior arquivo de MIDIs de videogames da internet, com mais de 31.000 arquivos cobrindo dezenas de plataformas — de NES e SNES a PlayStation e PC. Organizado por console e por jogo. Interface vintage dos anos 90, mas funcional e regularmente atualizado. Recurso incontornável para quem busca MIDIs de jogos clássicos e modernos.",
+      "category": "media-sheets",
+      "language": "en",
+      "url": "https://www.vgmusic.com/",
+      "searchHint": "Acesso direto pelo site. Navegar por console ou buscar pelo nome do jogo",
+      "status": "active",
+      "tags": ["MIDI", "jogos", "gratuito", "arquivo", "referência"],
+      "addedDate": "2026-04",
+      "lastChecked": "2026-04"
+    },
+    {
+      "id": "media-002",
+      "title": "NinSheetMusic",
+      "subtitle": "NinSheetMusic.org — Partituras de jogos",
+      "description": "Principal fonte de partituras gratuitas de alta qualidade para músicas de videogames. Apesar do nome sugerir apenas Nintendo, cobre diversas plataformas. Arranjos revisados e aprovados por uma comunidade dedicada — qualidade consistentemente superior à média. Disponível em PDF com versões MIDI para referência. A partitura de 'Peaceful Days' (Chrono Trigger) do projeto veio daqui.",
+      "category": "media-sheets",
+      "language": "en",
+      "url": "https://www.ninsheetmusic.org/",
+      "searchHint": "Acesso direto pelo site. Buscar por jogo ou compositor. Buscar: 'NinSheetMusic'",
+      "status": "active",
+      "tags": ["partituras", "jogos", "gratuito", "curadoria", "referência"],
+      "addedDate": "2026-04",
+      "lastChecked": "2026-04"
+    },
+    {
+      "id": "media-003",
+      "title": "Khinsider — Video Game Soundtracks",
+      "subtitle": "downloads.khinsider.com — Trilhas sonoras completas",
+      "description": "Arquivo massivo com mais de 100.000 álbuns e 3 milhões de faixas de trilhas sonoras de videogames em MP3 e formatos lossless. Também possui seção dedicada de MIDIs (khinsider.com/midi). Foco principal é ouvir e baixar soundtracks completas — útil como referência de áudio ao estudar uma música. Mantido por doações da comunidade, sem publicidade.",
+      "category": "media-sheets",
+      "language": "en",
+      "url": "https://downloads.khinsider.com/",
+      "searchHint": "Acesso direto pelo site. Para MIDIs especificamente: khinsider.com/midi",
+      "status": "active",
+      "tags": ["áudio", "MIDI", "jogos", "gratuito", "soundtracks"],
+      "addedDate": "2026-04",
+      "lastChecked": "2026-04"
+    },
+    {
+      "id": "media-004",
+      "title": "The Midi Shrine",
+      "subtitle": "midishrine.com — MIDIs de jogos e animes",
+      "description": "Arquivo de MIDIs que cobre tanto videogames quanto animes em um só lugar — diferencial raro. Organizado por plataforma/console para jogos e por série para animes. Cobertura inclui Final Fantasy, Zelda, Chrono Trigger, Slayers, entre outros. Interface simples e direta. Boa opção quando se precisa de MIDI de anime que não está em sites focados só em jogos.",
+      "category": "media-sheets",
+      "language": "en",
+      "url": "https://www.midishrine.com/",
+      "searchHint": "Acesso direto pelo site. Para animes: midishrine.com/index.php?console=anime",
+      "status": "active",
+      "tags": ["MIDI", "jogos", "anime", "gratuito"],
+      "addedDate": "2026-04",
+      "lastChecked": "2026-04"
+    },
+    {
+      "id": "media-005",
+      "title": "Ichigo's Sheet Music",
+      "subtitle": "ichigos.com — Partituras de anime e jogos",
+      "description": "Coleção gratuita de partituras de músicas de animes e videogames, ativa desde 2001. Foco em arranjos para piano. Comunidade estabelecida com curadoria consistente. Partituras em PDF — nem sempre acompanhadas de MIDI, mas a qualidade dos arranjos compensa. Uma das referências mais antigas e confiáveis para partituras de anime.",
+      "category": "media-sheets",
+      "language": "en",
+      "url": "https://ichigos.com/",
+      "searchHint": "Acesso direto pelo site. Buscar por nome do anime ou jogo",
+      "status": "active",
+      "tags": ["partituras", "anime", "jogos", "gratuito", "referência"],
+      "addedDate": "2026-04",
+      "lastChecked": "2026-04"
+    },
+    {
+      "id": "media-006",
+      "title": "TuneOnMusic",
+      "subtitle": "tuneonmusic.com — Partituras de anime, jogos e filmes",
+      "description": "Site moderno com partituras de piano gratuitas organizadas por categoria — anime, jogos, filmes e artistas. Oferece download em PDF e MIDI, o que facilita tanto o estudo visual quanto a prática em software como Synthesia ou Tyghorn Melody. Catálogo em crescimento com interface limpa e navegação intuitiva.",
+      "category": "media-sheets",
+      "language": "en",
+      "url": "https://tuneonmusic.com/",
+      "searchHint": "Acesso direto pelo site. Seções: /music-sheets/anime/, /music-sheets/games/",
+      "status": "active",
+      "tags": ["partituras", "MIDI", "anime", "jogos", "filmes", "gratuito"],
+      "addedDate": "2026-04",
+      "lastChecked": "2026-04"
+    },
+    {
+      "id": "media-007",
+      "title": "BitMidi",
+      "subtitle": "bitmidi.com — Biblioteca MIDI com player integrado",
+      "description": "Biblioteca geral de arquivos MIDI com um diferencial valioso: player integrado no navegador que permite ouvir qualquer MIDI antes de baixar. Útil para avaliar rapidamente a qualidade e fidelidade de um arquivo sem precisar abrir software externo. Acervo variado que inclui temas de jogos, filmes e músicas populares. Gratuito.",
+      "category": "media-sheets",
+      "language": "en",
+      "url": "https://bitmidi.com/",
+      "searchHint": "Acesso direto pelo site. Buscar pelo nome da música ou jogo",
+      "status": "active",
+      "tags": ["MIDI", "player", "gratuito", "variado"],
       "addedDate": "2026-04",
       "lastChecked": "2026-04"
     },

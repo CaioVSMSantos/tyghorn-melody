@@ -72,17 +72,21 @@ Expansão futura. Sem prazo definido.
 
 *Outros itens do projeto, independentes do módulo de teoria.*
 
+### Prioridade Alta
+
+- **Refatoração e reorganização do código** — O projeto está crescendo e precisa de uma passada de organização: separar arquivos grandes (ex: `style.css` em módulos por página/componente), revisar nomes e responsabilidades de módulos JS, garantir separação clara de contextos. Objetivo: manutenibilidade a longo prazo sem acumular dívida técnica
+
 ### Prioridade Média
 
 - **Separar catálogo e player em páginas distintas** — Atualmente `play.html` alterna entre duas vistas via `hidden`. Separar em `catalog.html` (seleção) e `play.html` (player) tornaria o código mais limpo e a navegação mais explícita. Requer refatoração de `play-app.js` e passagem da música selecionada via storage
 - **Novas músicas** — Expandir catálogo (animes, movies, artists). Pelo menos 1 por categoria para diversificar. Usar `tools/midi-to-json.py` para conversão
-- **Upload de MIDI pelo usuário** — Modo livre: carregar .mid no browser, selecionar tracks e praticar sem curadoria. Complementa o catálogo curado
 - **Metrônomo** — Standalone na página de Ferramentas e/ou integrado ao player (Web Audio API)
 - **Transposição automática** — Para teclados com menos teclas. Depende do range do teclado configurado
 - **Auto-ajuste visual do player ao teclado** — Range visual do canvas adapta ao teclado MIDI configurado em vez do range fixo de 61 teclas. `renderer.setMidiRange()` já aceita range dinâmico; basta `play-app.js` ler o range salvo no localStorage
 
 ### Prioridade Baixa
 
+- **Pipeline dual de transcrição (MIDI + PDF)** — Ao converter novas músicas, usar leitura visual de partitura PDF como verificação cruzada do MIDI. Valida notas/ritmos e captura informações que o MIDI não carrega (dinâmicas, articulações, intenção do arranjador). Detalhes em `docs/archive.md` (2026-04-16)
 - Exercícios práticos de teclado (escalas, progressões)
 - Sistema de progresso e gamificação (conquistas, streaks)
 - Gradações de acurácia (timing scoring além de hit/miss — perfect/good/late)
