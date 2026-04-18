@@ -315,6 +315,8 @@ Como sentar ao teclado e posicionar as mãos para tocar com conforto e eficiênc
 
 **Nota:** Este tópico é naturalmente limitado em formato texto. Postura é melhor ensinada presencialmente ou via vídeo. O tópico fornece os princípios fundamentais e referências visuais.
 
+**Relação com o Módulo de Exercícios (decisão 2026-04-17):** O tópico 2.3 deve apresentar **todas as informações básicas de forma completa e bem informada** (postura, altura do banco, posição de braços e pulsos, curvatura dos dedos, numeração 1–5, posição de cinco notas). O Módulo de Exercícios, quando existir, será uma **extensão prática** sobre essa base — com rotinas, exercícios progressivos, aquecimento, prevenção de LER e possivelmente explicações aprofundadas que podem redundar parcialmente com o conteúdo de 2.3. Essa redundância é intencional: Teoria explica, Exercícios treina. Não truncar 2.3 esperando que "o usuário veja no módulo de Exercícios" — cada módulo deve ser autossuficiente dentro do seu propósito.
+
 ---
 
 ### Módulo 3: Notas Musicais
@@ -1046,3 +1048,20 @@ Decisões tomadas em 2026-04-15 para orientar a implementação (Fase A).
 - (c) Canvas — mais complexo, não responsivo nativamente, overhead desnecessário para diagramas estáticos
 
 **Justificativa:** HTML/CSS é a opção mais simples, responsiva por natureza, sem dependências. Suficiente para diagramas estáticos de teclado com teclas destacadas. Alinhado com a stack do projeto (sem complexidade desnecessária).
+
+### D4. Representação de Partitura (Notação em Pauta) — SVG manual + fonte Bravura ✔
+
+**Decisão:** Quando trechos de partitura forem necessários (especialmente no Módulo 5 — Leitura Musical Básica), usar uma combinação de:
+
+1. **SVG manual embutido** no HTML do fragmento — para diagramas didáticos simples: pauta, claves isoladas, notas individuais posicionadas, exemplos de até 1–2 compassos
+2. **Fonte musical [Bravura](https://github.com/steinbergmedia/bravura)** (SMuFL, open source da Steinberg) servida localmente — para símbolos musicais inline no texto corrido (uma clave, uma figura rítmica, um símbolo de dinâmica dentro de um parágrafo)
+
+Padronizar um componente reutilizável de "mini-partitura" quando a primeira prova de conceito for feita no Módulo 5, seguindo o mesmo padrão do [`keyboard-diagram.js`](../js/keyboard-diagram.js).
+
+**Alternativas descartadas (por ora):**
+- (a) Imagens estáticas (SVG/PNG exportados de MuseScore/Lilypond) — adiciona binários e/ou artefatos não editáveis no repo; não é necessário enquanto os exemplos forem curtos. **Reavaliar** quando algum tópico exigir trechos longos ou passagens de obras reais
+- (b) Biblioteca JS (VexFlow, OpenSheetMusicDisplay) — viola o pilar de simplicidade (dependência de ~300KB). **Reavaliar** apenas quando/se o Player ganhar vista de partitura sincronizada, aí o custo se justifica pelo dinamismo
+
+**Justificativa:** Mantém o stack intocado e todos os artefatos versionáveis como texto. Suficiente para o escopo educacional atual, que exige apenas trechos curtos e didáticos. Assume-se o custo de produção manual em troca da aderência à simplicidade.
+
+**Ponto de atenção:** o assistente deve sinalizar explicitamente ao usuário quando um tópico estiver pedindo uma representação mais rica que a combinação SVG+Bravura consiga sustentar — nesse momento, reavaliar a alternativa (a) ou (b) conscientemente.

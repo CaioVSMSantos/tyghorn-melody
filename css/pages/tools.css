@@ -1,0 +1,149 @@
+/* ============================================
+   Ferramentas — Monitor MIDI e Configuração de Teclado
+   Estilos específicos da página de Ferramentas: lista de dispositivos,
+   log de notas e fluxo de configuração guiada.
+   ============================================ */
+
+/* --- MIDI Monitor --- */
+
+.device-list {
+    list-style: none;
+}
+
+.device-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid rgba(199, 125, 255, 0.1);
+}
+
+.device-item:last-child {
+    border-bottom: none;
+}
+
+.device-name {
+    font-weight: 600;
+    color: var(--neon-yellow);
+}
+
+.device-detail {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+}
+
+.note-log {
+    font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+    font-size: 0.85rem;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 0.5rem;
+    background-color: var(--bg-deep);
+    border-radius: 4px;
+}
+
+.note-entry {
+    padding: 0.3rem 0.5rem;
+    border-bottom: 1px solid rgba(199, 125, 255, 0.06);
+    display: flex;
+    gap: 1rem;
+}
+
+.note-entry:last-child {
+    border-bottom: none;
+}
+
+.note-name {
+    color: var(--neon-cyan);
+    font-weight: 600;
+    min-width: 3.5rem;
+}
+
+.note-velocity {
+    color: var(--text-secondary);
+    min-width: 5rem;
+}
+
+.note-type-on {
+    color: var(--neon-green);
+}
+
+.note-type-off {
+    color: var(--text-secondary);
+}
+
+.note-log-empty {
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 1rem 0.5rem;
+    text-align: center;
+}
+
+.note-log-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+
+/* --- Fluxo de Configuração de Teclado --- */
+
+.setup-step {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.setup-step-instruction {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.setup-step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    min-width: 2rem;
+    border-radius: 50%;
+    background-color: var(--neon-cyan);
+    color: var(--bg-deep);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.setup-note-feedback {
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-deep);
+    border-radius: 4px;
+    border: 1px solid rgba(199, 125, 255, 0.12);
+}
+
+.setup-note-display {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.setup-note-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+    font-family: "Cascadia Code", "Fira Code", monospace;
+}
+
+.setup-note-midi {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-family: "Cascadia Code", "Fira Code", monospace;
+}
+
+.setup-step-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}

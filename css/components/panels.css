@@ -1,0 +1,37 @@
+/* ============================================
+   Panels — Cartões/painéis de conteúdo.
+   Base (.panel) + variantes informativas (.panel-info, .panel-hint).
+   ============================================ */
+
+.panel {
+    background-color: var(--bg-dark);
+    border: 1px solid rgba(199, 125, 255, 0.15);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.panel-header {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.panel-info {
+    background-color: rgba(0, 229, 255, 0.05);
+    border-color: rgba(0, 229, 255, 0.2);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.panel-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.panel-hint {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}

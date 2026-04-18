@@ -1,0 +1,97 @@
+/* ============================================
+   Keyboard Diagram — Componente de diagrama de teclado.
+   Usado nos fragments de Teoria para ilustrar notas, oitavas e intervalos.
+   ============================================ */
+
+.keyboard-diagram {
+    position: relative;
+    height: 140px;
+    margin: 1.5rem 0;
+    user-select: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.keyboard-diagram--compact {
+    height: 100px;
+}
+
+.kbd-inner {
+    display: flex;
+    position: relative;
+    height: 100%;
+    min-width: 100%;
+    width: max-content;
+}
+
+.kbd-white {
+    position: relative;
+    flex: 1 0 44px;
+    min-width: 44px;
+    background-color: #e8e4f0;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 4px 4px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 8px;
+    transition: background-color 0.15s;
+}
+
+.kbd-black {
+    position: absolute;
+    top: 0;
+    width: 60%;
+    height: 62%;
+    background-color: #1a1230;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 6px;
+    transition: background-color 0.15s;
+}
+
+.kbd-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.2;
+    pointer-events: none;
+}
+
+.kbd-white .kbd-label {
+    color: #1a1230;
+}
+
+.kbd-black .kbd-label {
+    color: #e8e4f0;
+}
+
+/* Destaques por cor */
+.kbd-highlight-cyan { background-color: var(--neon-cyan) !important; }
+.kbd-highlight-cyan .kbd-label { color: var(--bg-deep) !important; }
+
+.kbd-highlight-yellow { background-color: var(--neon-yellow) !important; }
+.kbd-highlight-yellow .kbd-label { color: var(--bg-deep) !important; }
+
+.kbd-highlight-pink { background-color: var(--neon-pink) !important; }
+.kbd-highlight-pink .kbd-label { color: var(--bg-deep) !important; }
+
+.kbd-highlight-green { background-color: var(--neon-green) !important; }
+.kbd-highlight-green .kbd-label { color: var(--bg-deep) !important; }
+
+.kbd-highlight-purple { background-color: var(--neon-purple) !important; }
+.kbd-highlight-purple .kbd-label { color: var(--bg-deep) !important; }
+
+.kbd-highlight-root {
+    background-color: var(--neon-cyan) !important;
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+}
+.kbd-highlight-root .kbd-label { color: var(--bg-deep) !important; }

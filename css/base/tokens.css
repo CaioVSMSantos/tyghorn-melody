@@ -1,0 +1,35 @@
+/* ============================================
+   Tyghorn Melody — Design Tokens
+   Custom properties globais (paleta, glows, métricas de layout).
+   Nenhum seletor de componente vive aqui.
+   ============================================ */
+
+:root {
+    /* Fundos */
+    --bg-deep: #0f0a1a;
+    --bg-dark: #1a1230;
+    --bg-surface: #251b45;
+
+    /* Neons dominantes */
+    --neon-cyan: #00e5ff;
+    --neon-yellow: #ffe234;
+
+    /* Neons de apoio */
+    --neon-green: #39ff14;
+    --neon-pink: #ff2a6d;
+    --neon-purple: #c77dff;
+
+    /* Neutros */
+    --text-primary: #e8e4f0;
+    --text-secondary: #9e99ab;
+
+    /* Glow presets */
+    --glow-cyan: 0 0 8px rgba(0, 229, 255, 0.4);
+    --glow-yellow: 0 0 8px rgba(255, 226, 52, 0.4);
+    --glow-pink: 0 0 8px rgba(255, 42, 109, 0.4);
+
+    /* Métricas de layout compartilhadas.
+       --navbar-height mantém em sincronia o cálculo da altura do player
+       (calc(100vh - var(--navbar-height))) e o top da sidebar sticky da Teoria. */
+    --navbar-height: 49px;
+}

@@ -1,0 +1,39 @@
+/* ============================================
+   Buttons — Botões padrão (.btn) e variante primária (.btn-primary).
+   ============================================ */
+
+.btn {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--text-secondary);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.btn:hover {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.btn:disabled:hover {
+    border-color: var(--text-secondary);
+    color: var(--text-secondary);
+}
+
+.btn-primary {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+
+.btn-primary:hover {
+    box-shadow: var(--glow-cyan);
+}

@@ -1,0 +1,368 @@
+/* ============================================
+   Prática — Layout do Player e Catálogo
+   Estilos específicos da página de Prática: catálogo de músicas, header do
+   player, seleção de tracks e tolerância, canvas, barra de progresso,
+   status MIDI e controles.
+   ============================================ */
+
+/* --- Contêiner estreito usado por avisos acima do player --- */
+
+.container-narrow {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+}
+
+/* --- Catálogo de Músicas --- */
+
+.catalog-section {
+    margin-bottom: 1.5rem;
+}
+
+.catalog-section h2 {
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.catalog-card {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    background-color: var(--bg-dark);
+    border: 1px solid rgba(199, 125, 255, 0.15);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    color: var(--text-primary);
+}
+
+.catalog-card:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+.catalog-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.catalog-card-detail {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.catalog-card-meta {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+}
+
+.catalog-card-range {
+    color: var(--text-secondary);
+}
+
+.catalog-card-progress {
+    color: var(--neon-purple);
+    font-size: 0.8rem;
+}
+
+/* Faixa de contexto no topo da tela de seleção de música */
+#view-catalog .page-header {
+    border-left: 3px solid var(--neon-cyan);
+    padding-left: 1rem;
+}
+
+/* --- Player Layout --- */
+
+.player-layout {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - var(--navbar-height));
+    overflow: hidden;
+}
+
+.player-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--bg-dark);
+    border-bottom: 2px solid var(--neon-cyan);
+    box-shadow: 0 2px 12px rgba(0, 229, 255, 0.08);
+}
+
+.player-header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.player-header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.player-song-info {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.player-song-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-song-detail {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+}
+
+.player-tracks {
+    display: flex;
+    gap: 1.25rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--bg-deep);
+    border-bottom: 1px solid rgba(199, 125, 255, 0.08);
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+/* --- Track Groups (Radio) --- */
+
+.track-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.track-group-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.track-group-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.track-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.25rem 0.4rem;
+    border-radius: 4px;
+    transition: background-color 0.15s;
+}
+
+.track-option:hover {
+    background-color: rgba(199, 125, 255, 0.06);
+}
+
+.track-option input[type="radio"] {
+    accent-color: var(--neon-cyan);
+    width: 16px;
+    height: 16px;
+}
+
+.track-option input[type="radio"]:checked + span {
+    color: var(--neon-cyan);
+}
+
+.track-separator {
+    width: 1px;
+    align-self: stretch;
+    background-color: rgba(199, 125, 255, 0.15);
+    margin: 0 0.25rem;
+}
+
+.track-difficulty {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    margin-left: 0.25rem;
+}
+
+/* --- Tolerance Radio Group --- */
+
+.tolerance-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.tolerance-group-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.tolerance-options {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.tolerance-option {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    transition: background-color 0.15s;
+}
+
+.tolerance-option:hover {
+    background-color: rgba(199, 125, 255, 0.06);
+}
+
+.tolerance-option input[type="radio"] {
+    accent-color: var(--neon-yellow);
+    width: 14px;
+    height: 14px;
+}
+
+.tolerance-option input[type="radio"]:checked + span {
+    color: var(--neon-yellow);
+}
+
+/* --- Canvas --- */
+
+.player-canvas-container {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    background-color: var(--bg-deep);
+}
+
+.player-canvas-container canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Progress / Seek Bar --- */
+
+.player-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.4rem 1.5rem;
+    background-color: var(--bg-dark);
+    border-top: 1px solid rgba(199, 125, 255, 0.08);
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background-color: var(--bg-surface);
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: height 0.15s;
+}
+
+.progress-bar:hover {
+    height: 12px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--neon-cyan);
+    border-radius: 4px;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 6px rgba(0, 229, 255, 0.3);
+}
+
+.progress-time {
+    font-family: "Cascadia Code", "Fira Code", monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    min-width: 7rem;
+    text-align: right;
+}
+
+/* --- MIDI Status --- */
+
+.midi-status {
+    display: flex;
+    align-items: center;
+}
+
+.midi-indicator {
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.midi-indicator.midi-on {
+    color: var(--neon-green);
+}
+
+.midi-indicator.midi-off {
+    color: var(--text-secondary);
+}
+
+/* --- Player Controls --- */
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--bg-dark);
+    border-top: 1px solid rgba(199, 125, 255, 0.1);
+}
+
+.player-controls-left,
+.player-controls-center,
+.player-controls-right {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.speed-display {
+    font-family: "Cascadia Code", "Fira Code", monospace;
+    font-size: 1.1rem;
+    color: var(--neon-yellow);
+    min-width: 4rem;
+    text-align: center;
+}
+
+.accuracy-display {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}

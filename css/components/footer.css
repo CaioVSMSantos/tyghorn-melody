@@ -1,0 +1,21 @@
+/* ============================================
+   Site Footer — Rodapé de crédito e disclaimers.
+   ============================================ */
+
+.site-footer {
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    border-top: 1px solid rgba(199, 125, 255, 0.08);
+    line-height: 1.5;
+    opacity: 0.7;
+}
+
+.site-footer p {
+    margin-bottom: 0.35rem;
+}
+
+.site-footer p:last-child {
+    margin-bottom: 0;
+}

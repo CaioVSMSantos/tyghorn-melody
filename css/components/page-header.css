@@ -1,0 +1,18 @@
+/* ============================================
+   Page Header — Cabeçalho de página (título + subtítulo).
+   Componente transversal: usado em todas as páginas que começam com um
+   <h1> introdutório.
+   ============================================ */
+
+.page-header {
+    margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+    margin-bottom: 0.35rem;
+}
+
+.page-header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}

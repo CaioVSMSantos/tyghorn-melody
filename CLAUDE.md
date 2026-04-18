@@ -2,38 +2,7 @@
 
 Pilares, escopo e convenções do assistente. Este documento deve ser carregado automaticamente em toda interação — mantenha-o enxuto.
 
----
-
-## O Projeto: Tyghorn Melody
-
-Aplicativo web para aprendizado de teoria musical e prática no teclado.
-
-### Stack e Hospedagem
-
-- **Tecnologias**: HTML, CSS, JavaScript puros. Dados estruturados em JSON. Sem frameworks, sem bundlers, sem dependências externas.
-- **Hospedagem**: GitHub Pages ou uso local (abrir `index.html` diretamente no navegador).
-- **Persistência**: `localStorage` do navegador para dados do usuário.
-
-### Funcionalidades Principais
-
-1. **Base de Teoria Musical** — Conteúdo sintetizado e acessível sobre notas, escalas, acordes, tempo, ritmo, leitura de partituras e mapas de teclas. O suficiente para o usuário se sentir confortável com os fundamentos.
-2. **Player de Prática** — Interface onde músicas em formato JSON são carregadas e tocadas junto com um teclado. Leitura de teclado MIDI via Web MIDI API. Acompanhamento visual estilo FlowKey/Guitar Hero. Controle de velocidade e variações de dificuldade.
-
-### Funcionalidades Auxiliares
-
-- Metrônomo
-- Teste de conexão/leitura MIDI
-- Outras ferramentas conforme necessidade
-
-### Estrutura do Repositório
-
-- `css/` — Estilos (compartilhados e por página)
-- `js/` — Scripts JavaScript (compartilhados e por página)
-- `pages/` — Páginas HTML (theory, play, tools). `index.html` fica na raiz
-- `songs/` — Músicas em formato JSON, organizadas por categoria (animes, games, movies, artists)
-- `data/` — JSONs de dados da aplicação (teoria musical, escalas, etc.)
-- `content/theory/` — HTML fragments dos tópicos de teoria musical (carregados via fetch pelo shell)
-- `docs/` — Documentação do projeto (roadmap, archive, specs, arquitetura, design)
+> **Contexto do projeto:** visão geral no [README](README.md); arquitetura técnica em [`docs/architecture.md`](docs/architecture.md); roadmap e histórico em [`docs/roadmap.md`](docs/roadmap.md) e [`docs/archive.md`](docs/archive.md). Nomenclatura: **módulos do sistema** são as features (Teoria, Prática, Ferramentas, Recursos, Exercícios, Sobre). **Módulos de teoria** são os 11 conjuntos de lições dentro do módulo de Teoria Musical.
 
 ---
 

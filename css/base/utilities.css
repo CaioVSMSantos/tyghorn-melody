@@ -1,0 +1,22 @@
+/* ============================================
+   Tyghorn Melody — Utilitários
+   Classes atômicas transversais: cores de texto e contêineres de layout.
+   ============================================ */
+
+/* --- Cores de texto --- */
+
+.text-cyan { color: var(--neon-cyan); }
+.text-yellow { color: var(--neon-yellow); }
+.text-green { color: var(--neon-green); }
+.text-pink { color: var(--neon-pink); }
+.text-muted { color: var(--text-secondary); }
+
+/* --- Contêineres de layout --- */
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    flex: 1;
+}

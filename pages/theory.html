@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <title>Teoria Musical — Tyghorn Melody</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/base/tokens.css">
+    <link rel="stylesheet" href="../css/base/reset.css">
+    <link rel="stylesheet" href="../css/base/utilities.css">
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/components/callouts.css">
+    <link rel="stylesheet" href="../css/components/keyboard-diagram.css">
+    <link rel="stylesheet" href="../css/pages/theory.css">
 </head>
 <body>
     <nav class="navbar">
@@ -13,8 +19,10 @@
         <div class="navbar-links">
             <a href="./theory.html" class="active">Teoria</a>
             <a href="./play.html">Prática</a>
+            <a href="./exercises.html">Exercícios</a>
             <a href="./tools.html">Ferramentas</a>
             <a href="./resources.html">Recursos</a>
+            <a href="./about.html">Sobre</a>
         </div>
     </nav>
 
@@ -33,7 +41,7 @@
         </main>
     </div>
 
-    <script type="module" src="../js/theory.js"></script>
-    <script type="module" src="../js/keyboard-diagram.js"></script>
+    <script type="module" src="../js/theory/theory.js"></script>
+    <script type="module" src="../js/theory/keyboard-diagram.js"></script>
 </body>
 </html>

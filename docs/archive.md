@@ -17,6 +17,9 @@ Registro de decisões tomadas e itens concluídos ao longo do projeto.
 | Deploy GitHub Pages | 2026-04-14 | — | Publicação e validação em produção |
 | Especificação do Módulo de Teoria Musical | 2026-04-14 ~ 2026-04-15 | ~2h | Spec completa, roadmap faseado, decisões de arquitetura |
 | Módulo de Recursos (completo) | 2026-04-15 | ~3h | Spec, implementação, curadoria (83 recursos, 18 categorias), revisão de links |
+| Módulo de Teoria — Fase A (estrutura) | 2026-04-15 ~ 2026-04-16 | ~4h | Shell dinâmico, manifesto, CSS, navegação, componente keyboard-diagram |
+| Módulo de Teoria — Fase B parcial (Módulos 1 e 2) | 2026-04-16 ~ 2026-04-17 | ~5h | 6 tópicos de conteúdo denso, correções de renderização do keyboard-diagram, estrutura de imagens |
+| Planejamento e Bloco A da Refatoração | 2026-04-17 | — | Plano revisado/aprovado, 6 módulos do sistema formalizados (Exercícios + Sobre), Bloco A executado (shared/ criado) |
 
 ---
 
@@ -370,3 +373,128 @@ O assistente demonstrou capacidade de leitura visual de partituras em PDF — id
 
 - **Removido**: "Upload de MIDI pelo usuário" — funcionalidade trabalhosa que desvia do propósito do projeto (catálogo curado de músicas para prática)
 - **Adicionado (Prioridade Alta)**: Refatoração e reorganização do código — separar arquivos grandes, revisar responsabilidades de módulos, boas práticas
+
+## 2026-04-17 — Módulos 1 e 2 da Teoria Concluídos
+
+### Conteúdo entregue
+
+Seis tópicos de teoria musical implementados como HTML fragments em `content/theory/`, carregados dinamicamente pelo shell `pages/theory.html`:
+
+**Módulo 1 — O Que é Música**
+- `1-1.html` — O Que é Som
+- `1-2.html` — Os Pilares da Música
+- `1-3.html` — Notação Musical Básica
+
+**Módulo 2 — Conhecendo o Teclado**
+- `2-1.html` — Anatomia do Teclado
+- `2-2.html` — Oitavas e o Padrão Visual
+- `2-3.html` — Postura e Dedilhado Básico
+
+Cada tópico segue a estrutura padrão definida na spec: bloco de preview, Conceito, Aprofundamento (colapsável), Contexto Histórico (colapsável) e Exercícios (colapsável) com questões conceituais e práticas. Densidade e multi-angularidade mantidas conforme diretriz do projeto.
+
+### Correções de renderização no keyboard-diagram
+
+Duas patologias corrigidas em `js/keyboard-diagram.js` e `css/style.css`:
+
+1. **Primeira iteração**: teclas renderizadas excessivamente finas em ranges longos. Causa: wrapper JS duplicava a classe `.keyboard-diagram` dentro do próprio container, criando flex aninhado colapsado. Fix: render direto no container + `min-width: 44px` nas teclas brancas + `overflow-x: auto`.
+
+2. **Segunda iteração**: em ranges com scroll horizontal, teclas pretas (posicionadas com `left: %`) referenciavam a largura visível do container, não a largura do conteúdo. Todas as pretas se comprimiam na viewport enquanto as brancas se estendiam além. Fix: introdução de wrapper interno `.kbd-inner` com `position: relative`, `min-width: 100%`, `width: max-content` — estabelece o sistema de coordenadas correto para os percentuais das pretas.
+
+Ambas as correções validadas por screenshots do usuário.
+
+### Estrutura de imagens do projeto
+
+Criada pasta `images/theory/` como peer dos demais diretórios de recursos (`css/`, `js/`, `data/`). Organização por módulo permite expansão natural para `images/play/`, `images/tools/` conforme necessidade.
+
+Primeira imagem armazenada: `images/theory/2-3_fingers-numbers.png`, substituindo o SVG inline de diagrama de mãos em 2-3 (a renderização vetorial ficou esteticamente aquém do necessário; imagem gerada externamente pelo usuário).
+
+### Decisões tomadas no período
+
+- **Escopo do tópico 2.3**: conter informações básicas completas sobre postura e dedilhado, mesmo sabendo que o futuro Módulo de Exercícios tratará os mesmos temas em profundidade. A redundância é intencional — o Módulo de Teoria precisa ser autossuficiente.
+- **Representação de partituras (D4)**: adotar SVG manual + fonte Bravura quando o conteúdo exigir notação musical. Registrada em `docs/theory-spec.md`. Imagens estáticas não são necessárias por enquanto; reavaliar no Módulo 5 (Leitura Musical Básica).
+- **Disciplina de travessões**: tópicos novos (2-1, 2-2, 2-3) escritos com zero travessões. Módulos anteriores (1-1, 1-2, 1-3) a revisar na fase de revisão textual/factual.
+- **Disclaimer médico em 2-3**: presente em três pontos (Conceito, Aprofundamento após metodologias ergonômicas, Exercícios), esclarecendo que o material é educacional e não substitui orientação clínica.
+
+### Estado ao final
+
+- Módulo de Teoria Fase A: concluída
+- Módulo de Teoria Fase B: 2 de 3 módulos entregues (1 e 2 completos; 3 pendente)
+- Revisão textual/factual dos 6 tópicos entregues: pendente
+- Próximo chat: sessão de refatoração de código
+
+## 2026-04-17 — Planejamento da Refatoração + Bloco A
+
+**Contexto:** Sessão dedicada à preparação do trabalho de refatoração estrutural. Revisão e aprovação do plano, formalização dos módulos do sistema e execução do primeiro bloco preparatório (sem mudanças visíveis).
+
+### Plano de refatoração revisado e aprovado
+
+`docs/refactoring-plan.md` revisado em 8 pontos após feedback do usuário e aprovado integralmente. Principais ajustes:
+
+- **Coluna Status (⬜/🟦/✅)** adicionada a todas as tabelas de blocos para acompanhamento
+- **Removida regra de "≤ 300 linhas"** (métrica arbitrária) — critérios passam a ser qualitativos
+- **Bloco F — Responsividade Básica** adicionado: `@media` para Teoria/Recursos (totalmente responsivos) e overlay JS mobile para Prática/Ferramentas (explicando limitações, sem responsivizar o player). Critério: `matchMedia('(pointer: coarse) and (max-width: 900px)')`
+- **Parte II (Documental)** renumerada de F1-F6 para **G1-G6 (Bloco G — Limpeza Documental)** para evitar colisão de IDs
+- **Validações duplicadas, DOM helpers e responsividade completa do Player** documentados como dívida técnica diferida para o roadmap (não escopo imediato)
+
+### Módulos do sistema formalizados (6)
+
+Distinção terminológica registrada em `CLAUDE.md`:
+
+- **Módulos do sistema** (6 features de topo): **Teoria, Prática, Exercícios, Ferramentas, Recursos, Sobre**
+- **Módulos de teoria** (11 grupos de lições dentro da Teoria Musical)
+
+Implementação:
+- `index.html` expandido com cards para **Exercícios** (🏋️) e **Sobre** (ℹ️)
+- `pages/exercises.html` e `pages/about.html` criadas como placeholders "Em Construção"
+- Navbar de todas as páginas expandida para 6 links
+- `about.html` menciona que hospedará o histórico de **Patch Notes**
+
+### Roadmap reorganizado
+
+- **Refatoração do Player promovida a Prioridade Alta**, absorvendo itens correlatos (separar catálogo/player, pipeline dual MIDI+partitura, filtros de catálogo)
+- **Módulo de Exercícios** com nota factual sobre **Hanon** (1819-1900, "The Virtuoso Pianist") e **Czerny** (1791-1857, op. 299, 740, 849) como referências metodológicas
+- **Módulo Sobre** com Patch Notes adicionado em Prioridade Média
+- **Deferrals técnicos** (validações de `song-loader.js` × `storage.js`, `el.js` não adotado ainda, responsividade completa do Player) registrados em Prioridade Baixa
+
+### Documentação alinhada
+
+- `CLAUDE.md` — removida seção "O Projeto" (duplicava código/estrutura de repositório); substituída por nota breve apontando para README/architecture/roadmap e definindo a nomenclatura de módulos
+- `README.md` — removidas tabela de músicas, seção "Adicionando Músicas" e estrutura de repositório (duplicavam código). Estado atual de Teoria e Recursos atualizado
+
+### Bloco A executado (A1, A2, A3 ✅)
+
+Refatoração preparatória sem impacto visual ou funcional:
+
+**A1 — `js/shared/note-utils.js`**
+Módulo único consolidando utilitários de conversão e classificação de notas:
+- `noteToMidi(noteName)` — nome → número MIDI
+- `midiToNoteName(midi)` — número MIDI → nome (sem oitava)
+- `isBlackKey(midi)` — identifica tecla preta
+- `isCNote(midi)` — identifica nota C (qualquer oitava)
+- Usa `NOTE_NAMES` array e `BLACK_KEY_INDICES` Set internos
+- Coexistência intencional com `noteNumberToName` de `midi.js` documentada (formato "C4" × "C 4")
+
+Consumidores migrados: `renderer.js` (removeu `isBlackKey`/`isCNote` locais) e `keyboard-diagram.js` (removeu `noteToMidi`, `isBlackKey`, constantes locais; `midiToNoteName` local era dead code).
+
+**A2 — `js/shared/dom.js`**
+Helpers declarativos para criação de DOM:
+- `el(tag, attrs, children)` — substitui boilerplate de `createElement` + `setAttribute` + `appendChild`
+- `statGrid(items)` — gera grid de estatísticas a partir de pares `{label, value}`
+- `badge(text, className)` — gera `<span>` com classe e texto
+
+Decisão de segurança: `el()` **lança `Error` se receber `innerHTML`** como atributo, eliminando vetor XSS na origem. Strings em `children` viram `textNode` automaticamente. Migração dos consumidores adiada para o Bloco C (C7).
+
+**A3 — Pasta `js/shared/`**
+Via `git mv` (preserva histórico com status `R`):
+- `js/midi.js` → `js/shared/midi.js`
+- `js/storage.js` → `js/shared/storage.js`
+
+Imports atualizados em `play-app.js`, `tools.js`, `renderer.js`. Verificação via `grep` confirmou ausência de imports obsoletos.
+
+### Estado ao final da sessão
+
+- Plano completo aprovado em `docs/refactoring-plan.md` com Status trackável
+- Bloco A concluído; Bloco B (CSS três camadas) é o próximo
+- Seis módulos do sistema formalizados com placeholders no ar
+- Commits serão tratados pelo usuário (não commitar sem pedido)
+- Retomar amanhã a partir do Bloco B

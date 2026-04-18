@@ -1,0 +1,43 @@
+/* ============================================
+   Hub Cards — Cartões de navegação usados na página inicial e similares.
+   ============================================ */
+
+.hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.hub-card {
+    display: block;
+    background-color: var(--bg-dark);
+    border: 1px solid rgba(199, 125, 255, 0.15);
+    border-radius: 6px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.hub-card:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+    text-shadow: none;
+}
+
+.hub-card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.hub-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+}
+
+.hub-card-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}

@@ -28,15 +28,14 @@ Construído com HTML, CSS e JavaScript puros. Sem frameworks, sem dependências 
 - Gerenciamento de dados: limpar progresso ou redefinir configurações
 
 ### Teoria Musical
-- Página de teoria musical *(em desenvolvimento)*
+- Módulo educacional organizado em 11 módulos (do básico absoluto a conceitos intermediários e avançados)
+- Cada tópico combina texto, diagramas de teclado interativos e callouts conceituais
+- Navegação por sidebar com progresso explícito, breadcrumb e pré-requisitos entre tópicos
+- Status atual: estrutura e fundamentos implementados; expansão em andamento. Ver `docs/roadmap.md` para detalhe das fases
 
-## Músicas Disponíveis
-
-| Música | Origem | Categoria | Dificuldade |
-|--------|--------|-----------|-------------|
-| Stickerbrush Symphony | Donkey Kong Country 2 | games | Intermediário |
-| Peaceful Days | Chrono Trigger | games | Iniciante |
-| Frog's Theme | Chrono Trigger | games | Intermediário |
+### Recursos
+- Catálogo curado de livros, cursos, vídeos e ferramentas externas para aprofundamento
+- Organizados por categoria, com badges de idioma, nível e custo
 
 ## Como Usar
 
@@ -56,37 +55,6 @@ python -m http.server 8080
 Em seguida, abra `http://localhost:8080` no Chrome ou Edge.
 
 > **Chrome/Edge obrigatórios.** A Web MIDI API não é suportada pelo Firefox nem pelo Safari.
-
-## Adicionando Músicas
-
-As músicas são arquivos `.json` em `songs/`, convertidos a partir de arquivos MIDI com a ferramenta inclusa:
-
-```bash
-# Análise (exibe tracks disponíveis e range de notas)
-python tools/midi-to-json.py analyze arquivo.mid
-
-# Conversão
-python tools/midi-to-json.py convert arquivo.mid --output songs/games/nome-da-musica.json
-
-# Status do índice de conversões
-python tools/midi-to-json.py status
-```
-
-Requer Python 3. Sem dependências externas.
-
-## Estrutura do Repositório
-
-```
-tyghorn-melody/
-├── index.html              ← Ponto de entrada (hub)
-├── css/style.css           ← Estilos (paleta synthwave, componentes, player)
-├── js/                     ← Módulos JavaScript (MIDI, storage, player, renderer)
-├── pages/                  ← Páginas HTML (theory, play, tools)
-├── songs/                  ← Músicas em JSON, organizadas por categoria
-├── midis/                  ← Arquivos MIDI fonte
-├── tools/midi-to-json.py   ← Conversor MIDI→JSON
-└── docs/                   ← Documentação técnica e de projeto
-```
 
 ## Compatibilidade
 

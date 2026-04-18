@@ -1,0 +1,43 @@
+/* ============================================
+   Under Construction — Placeholder visual para módulos ainda não
+   implementados (Exercícios, Sobre).
+   ============================================ */
+
+.under-construction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    gap: 1rem;
+}
+
+.uc-icon {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.uc-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--neon-yellow);
+    text-shadow: var(--glow-yellow);
+}
+
+.uc-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    max-width: 480px;
+    line-height: 1.6;
+}
+
+.uc-btn {
+    margin-top: 0.5rem;
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+
+.uc-btn:hover {
+    box-shadow: var(--glow-cyan);
+}

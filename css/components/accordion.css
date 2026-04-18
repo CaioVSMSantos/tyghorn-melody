@@ -1,0 +1,100 @@
+/* ============================================
+   Accordion — Seções colapsáveis.
+   Base reutilizável; variantes específicas de domínio (ex.: arquivo em
+   Recursos) vivem no CSS da página correspondente.
+   ============================================ */
+
+.accordion-section {
+    margin-bottom: 0.5rem;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.9rem 1.25rem;
+    background-color: var(--bg-surface);
+    border: 1px solid rgba(199, 125, 255, 0.15);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.accordion-header:hover {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 6px rgba(199, 125, 255, 0.15);
+}
+
+.accordion-header:focus-visible {
+    outline: 2px solid var(--neon-cyan);
+    outline-offset: 2px;
+}
+
+.accordion-header[aria-expanded="true"] {
+    border-radius: 6px 6px 0 0;
+    border-bottom-color: transparent;
+}
+
+.accordion-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.accordion-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.accordion-title {
+    font-weight: 600;
+}
+
+.accordion-count {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.accordion-arrow {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    transition: transform 0.2s;
+}
+
+.accordion-content {
+    background-color: var(--bg-dark);
+    border: 1px solid rgba(199, 125, 255, 0.15);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    padding: 1.25rem;
+}
+
+.accordion-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.accordion-empty {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+}
+
+.accordion-group-separator {
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(199, 125, 255, 0.2),
+        transparent
+    );
+    margin: 1.25rem 0;
+}
