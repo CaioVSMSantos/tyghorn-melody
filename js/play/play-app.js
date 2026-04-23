@@ -7,6 +7,7 @@
  */
 
 import * as storage from "../shared/storage.js";
+import { showMobileWarning } from "../shared/mobile-warning.js";
 import { loadCatalog, loadSong } from "./song-loader.js";
 import { createPlayer } from "./player.js";
 import { createRenderer } from "./renderer.js";
@@ -25,7 +26,7 @@ import {
     updateAccuracy,
 } from "./player-controls.js";
 
-const SONGS_BASE = "../songs";
+const SONGS_BASE = "../content/songs";
 
 function createPlayApp() {
     // --- DOM refs ---
@@ -65,6 +66,10 @@ function createPlayApp() {
     // --- Inicialização ---
 
     async function init() {
+        showMobileWarning({
+            message: "A Prática requer teclado MIDI físico e tela maior — recomendamos usar um desktop. Continuar mesmo assim?",
+            sessionKey: "tyghorn-melody:mobile-warning-dismissed:play",
+        });
         await midi.init();
         await showCatalog();
         bindControls(dom, {

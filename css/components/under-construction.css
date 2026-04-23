@@ -41,3 +41,21 @@
 .uc-btn:hover {
     box-shadow: var(--glow-cyan);
 }
+
+@media (max-width: 768px) {
+    .under-construction {
+        padding: 2.5rem 1rem;
+    }
+
+    .uc-icon {
+        font-size: 2.75rem;
+    }
+
+    .uc-title {
+        font-size: 1.35rem;
+    }
+
+    .uc-desc {
+        font-size: 0.9rem;
+    }
+}

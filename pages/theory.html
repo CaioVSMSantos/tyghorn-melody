@@ -26,9 +26,20 @@
         </div>
     </nav>
 
+    <!-- Drawer controls: visíveis apenas em mobile via CSS. -->
+    <button type="button"
+            class="theory-drawer-toggle"
+            id="theory-drawer-toggle"
+            aria-controls="theory-sidebar"
+            aria-expanded="false">
+        <span class="theory-drawer-toggle-icon" aria-hidden="true">☰</span>
+        <span>Índice de tópicos</span>
+    </button>
+    <div class="theory-drawer-backdrop" id="theory-drawer-backdrop" hidden></div>
+
     <div class="theory-layout">
         <!-- Sidebar: índice de módulos e tópicos -->
-        <aside class="theory-sidebar" id="theory-sidebar">
+        <aside class="theory-sidebar" id="theory-sidebar" data-drawer-open="false">
             <div class="sidebar-title">Módulos</div>
             <nav id="sidebar-nav" aria-label="Índice de tópicos"></nav>
         </aside>

@@ -20,3 +20,9 @@
     padding: 2rem 1.5rem;
     flex: 1;
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.25rem 1rem;
+    }
+}

@@ -534,21 +534,88 @@
     max-width: 420px;
 }
 
-/* --- Responsivo: sidebar colapsada em telas menores --- */
+/* Legenda de diagrama inline (ex.: <p> sob .keyboard-diagram).
+   Para figuras com <figure>, usar figcaption dentro de .topic-figure. */
+.figure-caption {
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+/* --- Drawer controls (mobile) --- */
+
+.theory-drawer-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    background-color: var(--bg-dark);
+    border: none;
+    border-bottom: 1px solid rgba(199, 125, 255, 0.15);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+}
+
+.theory-drawer-toggle:hover,
+.theory-drawer-toggle:focus-visible {
+    color: var(--neon-cyan);
+    outline: none;
+}
+
+.theory-drawer-toggle-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.theory-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 10, 26, 0.72);
+    z-index: 105;
+}
+
+.theory-drawer-backdrop[hidden] {
+    display: none !important;
+}
+
+/* --- Responsivo: sidebar como drawer em telas menores --- */
 
 @media (max-width: 768px) {
+    .theory-drawer-toggle {
+        display: flex;
+    }
+
     .theory-layout {
         flex-direction: column;
         gap: 1rem;
+        padding: 1rem;
     }
 
     .theory-sidebar {
-        width: 100%;
-        position: static;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: min(80vw, 320px);
+        height: 100vh;
         max-height: none;
-        border-bottom: 1px solid rgba(199, 125, 255, 0.12);
-        padding-bottom: 1rem;
-        padding-right: 0;
+        background-color: var(--bg-deep);
+        border-right: 1px solid rgba(199, 125, 255, 0.2);
+        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.5);
+        padding: 1.25rem 0.75rem 1.25rem 1rem;
+        transform: translateX(-100%);
+        transition: transform 0.22s ease-out;
+        z-index: 110;
+        overflow-y: auto;
+    }
+
+    .theory-sidebar[data-drawer-open="true"] {
+        transform: translateX(0);
     }
 
     .topic-nav {

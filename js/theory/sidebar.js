@@ -82,3 +82,50 @@ function toggleSidebarModule(header) {
     header.setAttribute("aria-expanded", String(!expanded));
     list.hidden = expanded;
 }
+
+/**
+ * Converte a sidebar em drawer deslizante em telas mobile.
+ * Toggle abre/fecha; backdrop e clique em tópico fecham; Escape fecha.
+ * No desktop (>768px) os controles ficam invisíveis via CSS e o estado é
+ * reinicializado para evitar resquícios ao redimensionar.
+ */
+export function attachDrawer(sidebarEl, toggleEl, backdropEl) {
+    if (!sidebarEl || !toggleEl || !backdropEl) return;
+
+    const mql = window.matchMedia("(max-width: 768px)");
+
+    const open = () => {
+        sidebarEl.setAttribute("data-drawer-open", "true");
+        toggleEl.setAttribute("aria-expanded", "true");
+        backdropEl.hidden = false;
+    };
+
+    const close = () => {
+        sidebarEl.setAttribute("data-drawer-open", "false");
+        toggleEl.setAttribute("aria-expanded", "false");
+        backdropEl.hidden = true;
+    };
+
+    toggleEl.addEventListener("click", () => {
+        const isOpen = sidebarEl.getAttribute("data-drawer-open") === "true";
+        if (isOpen) close();
+        else open();
+    });
+
+    backdropEl.addEventListener("click", close);
+
+    sidebarEl.addEventListener("click", (e) => {
+        if (!mql.matches) return;
+        if (e.target.closest(".sidebar-topic-link")) close();
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && sidebarEl.getAttribute("data-drawer-open") === "true") {
+            close();
+        }
+    });
+
+    mql.addEventListener("change", (e) => {
+        if (!e.matches) close();
+    });
+}

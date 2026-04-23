@@ -16,3 +16,13 @@
     color: var(--text-secondary);
     font-size: 0.95rem;
 }
+
+@media (max-width: 768px) {
+    .page-header {
+        margin-bottom: 1rem;
+    }
+
+    .page-header p {
+        font-size: 0.9rem;
+    }
+}

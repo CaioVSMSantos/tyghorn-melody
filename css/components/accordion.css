@@ -98,3 +98,14 @@
     );
     margin: 1.25rem 0;
 }
+
+@media (max-width: 768px) {
+    .accordion-header {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .accordion-content {
+        padding: 0.9rem;
+    }
+}

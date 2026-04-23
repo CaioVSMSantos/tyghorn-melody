@@ -19,7 +19,8 @@ Registro de decisões tomadas e itens concluídos ao longo do projeto.
 | Módulo de Recursos (completo) | 2026-04-15 | ~3h | Spec, implementação, curadoria (83 recursos, 18 categorias), revisão de links |
 | Módulo de Teoria — Fase A (estrutura) | 2026-04-15 ~ 2026-04-16 | ~4h | Shell dinâmico, manifesto, CSS, navegação, componente keyboard-diagram |
 | Módulo de Teoria — Fase B parcial (Módulos 1 e 2) | 2026-04-16 ~ 2026-04-17 | ~5h | 6 tópicos de conteúdo denso, correções de renderização do keyboard-diagram, estrutura de imagens |
-| Planejamento e Bloco A da Refatoração | 2026-04-17 | — | Plano revisado/aprovado, 6 módulos do sistema formalizados (Exercícios + Sobre), Bloco A executado (shared/ criado) |
+| Planejamento e Bloco A da Refatoração | 2026-04-17 | ~3h | Plano revisado/aprovado, 6 módulos do sistema formalizados (Exercícios + Sobre), Bloco A executado (shared/ criado) |
+| Refatoração estrutural (Blocos B–G) | 2026-04-18 ~ 2026-04-23 | ~3h | CSS em 3 camadas, JS por feature, `content/`+`authoring/`, responsividade básica, specs enxutas, plano de refatoração arquivado |
 
 ---
 
@@ -498,3 +499,31 @@ Imports atualizados em `play-app.js`, `tools.js`, `renderer.js`. Verificação v
 - Seis módulos do sistema formalizados com placeholders no ar
 - Commits serão tratados pelo usuário (não commitar sem pedido)
 - Retomar amanhã a partir do Bloco B
+
+## 2026-04-18 ~ 2026-04-23 — Refatoração Estrutural (Blocos B–G)
+
+Continuação do plano aprovado em 2026-04-17. Bloco A registrado na entrada anterior. `docs/refactoring-plan.md` excluído ao final — sua função de guia foi cumprida; o resultado vive no código e nos documentos atualizados.
+
+**Blocos B–D — código e assets:**
+
+- `css/style.css` (1797 linhas) fatiado em três camadas: `base/` (tokens, reset, utilities), `components/` (12 componentes) e `pages/` (4 páginas). Navbar sticky via token `--navbar-height` compartilhado pelo player e pela sidebar de teoria
+- `js/` reorganizado por feature (`shared/`, `play/`, `theory/`, `tools/`, `resources/`). `play-app.js` e `theory.js` quebrados em módulos stateless + factories (`createPlayApp`, `createTheoryShell`). `renderer.js` passou a ler tokens de `tokens.css` via `getComputedStyle`. Helpers de `shared/dom.js` adotados em 6 pontos de boilerplate
+- `content/` (runtime) e `authoring/` (fontes MIDI e partituras) como taxonomias de alto nível. `tools/midi-to-json.py` ajustado aos novos paths
+
+**Bloco E1 — `architecture.md`:** nova árvore, módulos JS agrupados por feature, seção dedicada aos estilos CSS.
+
+**Bloco F — responsividade básica:** Teoria com sidebar em drawer mobile, páginas estáticas com media queries em 768px, Prática e Ferramentas com overlay informativo disparado por `(pointer: coarse) and (max-width: 900px)` (dispensa persistida em sessionStorage). Responsividade completa do player fica fora de escopo — MIDI em celular é caso marginal.
+
+**Bloco G — limpeza documental:** especificações reduzidas para carregar apenas o *porquê*; o *o quê* vive no código.
+
+| Documento | Antes | Depois | Cortes principais |
+|---|---|---|---|
+| `design.md` | 60 | 66 | — (adicionou seção explícita sobre glows) |
+| `player-spec.md` | 381 | 90 | Schema JSON, layout ASCII, tabela de cores, estrutura de localStorage, fluxo de setup |
+| `theory-spec.md` | 1067 | 297 | Catálogo tópico-a-tópico (fonte: manifesto + fragments); preservadas tese por módulo e decisões explícitas |
+| `resources-spec.md` | 908 | 325 | Schema, layout, componentes visuais; `tools` recontado para 4 categorias |
+| `architecture.md` | 168 | 168 | Ajuste: contrato das músicas aponta para `song-loader.js` |
+
+**Princípio consolidado:** especificações explicam o *porquê*; código carrega o *o quê*. Em divergência, o código vence.
+
+**Estado ao final:** refatoração estrutural concluída. Projeto pronto para retomar entrega de conteúdo — Módulo 3 da Teoria, novas músicas, especificação do Módulo de Exercícios.

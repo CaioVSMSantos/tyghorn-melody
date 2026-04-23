@@ -1,5 +1,5 @@
 /**
- * validator.js — Validação do schema de data/resources.json.
+ * validator.js — Validação do schema de content/data/resources.json.
  *
  * Retorna array de mensagens de erro (vazio quando válido). Não toca DOM —
  * o orquestrador decide entre apenas warn no console ou abortar a render.

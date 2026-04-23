@@ -1,7 +1,7 @@
 /**
  * song-loader.js — Carregamento e validação de músicas
  *
- * Carrega o catálogo (songs/catalog.json) e músicas individuais.
+ * Carrega o catálogo (content/songs/catalog.json) e músicas individuais.
  * Valida o schema completo antes de retornar.
  */
 

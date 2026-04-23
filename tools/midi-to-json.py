@@ -41,8 +41,8 @@ BLACK_KEYS = {1, 3, 6, 8, 10}
 
 # Caminhos relativos a raiz do projeto
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MIDIS_DIR = os.path.join(PROJECT_ROOT, "midis")
-SONGS_DIR = os.path.join(PROJECT_ROOT, "songs")
+MIDIS_DIR = os.path.join(PROJECT_ROOT, "authoring", "midis")
+SONGS_DIR = os.path.join(PROJECT_ROOT, "content", "songs")
 INDEX_FILE = os.path.join(MIDIS_DIR, "index.json")
 CATALOG_FILE = os.path.join(SONGS_DIR, "catalog.json")
 

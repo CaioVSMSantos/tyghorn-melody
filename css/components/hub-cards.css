@@ -41,3 +41,24 @@
     color: var(--text-secondary);
     line-height: 1.4;
 }
+
+@media (max-width: 768px) {
+    .hub-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+        margin-top: 1.25rem;
+    }
+
+    .hub-card {
+        padding: 1rem 1.1rem;
+    }
+
+    .hub-card-icon {
+        font-size: 1.6rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .hub-card-title {
+        font-size: 1rem;
+    }
+}

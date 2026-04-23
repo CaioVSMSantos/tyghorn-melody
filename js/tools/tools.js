@@ -13,6 +13,7 @@ import {
     onStateChange,
     listenToInputs,
 } from "../shared/midi.js";
+import { showMobileWarning } from "../shared/mobile-warning.js";
 
 import { createMidiMonitor } from "./midi-monitor.js";
 import { createKeyboardSetup } from "./keyboard-setup.js";
@@ -71,6 +72,10 @@ function createToolsApp() {
     }
 
     async function init() {
+        showMobileWarning({
+            message: "As Ferramentas MIDI requerem conexão USB/OTG e funcionam melhor em desktop. Continuar mesmo assim?",
+            sessionKey: "tyghorn-melody:mobile-warning-dismissed:tools",
+        });
         monitor.renderBrowserStatus(isSupported());
 
         if (!isSupported()) {

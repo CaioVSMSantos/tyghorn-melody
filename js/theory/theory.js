@@ -8,14 +8,17 @@
  */
 
 import { loadManifest, findTopic } from "./manifest.js";
-import { buildSidebar, updateSidebarActive } from "./sidebar.js";
+import { buildSidebar, updateSidebarActive, attachDrawer } from "./sidebar.js";
 import { renderIndex, renderTopic, renderError } from "./topic-view.js";
 
-const MANIFEST_PATH = "../data/theory-manifest.json";
+const MANIFEST_PATH = "../content/data/theory-manifest.json";
 
 function createTheoryShell() {
     const sidebarNav = document.getElementById("sidebar-nav");
     const contentArea = document.getElementById("theory-content");
+    const sidebarEl = document.getElementById("theory-sidebar");
+    const drawerToggle = document.getElementById("theory-drawer-toggle");
+    const drawerBackdrop = document.getElementById("theory-drawer-backdrop");
 
     let manifest = null;
     let topicOrder = [];
@@ -31,6 +34,7 @@ function createTheoryShell() {
 
         topicOrder = manifest.topics.map(t => t.id);
         buildSidebar(sidebarNav, manifest);
+        attachDrawer(sidebarEl, drawerToggle, drawerBackdrop);
         handleRoute();
         window.addEventListener("hashchange", handleRoute);
     }

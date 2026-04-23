@@ -1,7 +1,7 @@
 /**
  * resources.js — Orquestrador da página de Recursos.
  *
- * Fetch de data/resources.json, validação não-bloqueante (apenas warn no
+ * Fetch de content/data/resources.json, validação não-bloqueante (apenas warn no
  * console) e renderização da página. Erros de rede/parsing abortam com
  * painel de erro no lugar do container.
  */
@@ -9,7 +9,7 @@
 import { validateResources } from "./validator.js";
 import { renderResources, setupAccordion } from "./view.js";
 
-const DATA_URL = "../data/resources.json";
+const DATA_URL = "../content/data/resources.json";
 
 async function init() {
     const containerEl = document.getElementById("resources-container");

@@ -1,0 +1,91 @@
+/* ============================================
+   Mobile Warning — Overlay de aviso para páginas desktop-first.
+   Usado em Prática e Ferramentas quando a heurística mobile (pointer: coarse
+   + largura ≤ 900px) dispara. Dispensa persiste em sessionStorage.
+   ============================================ */
+
+.mobile-warning-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    background-color: rgba(15, 10, 26, 0.88);
+    backdrop-filter: blur(2px);
+}
+
+.mobile-warning-panel {
+    width: 100%;
+    max-width: 420px;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--neon-cyan);
+    border-radius: 8px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.15);
+}
+
+.mobile-warning-icon {
+    font-size: 2.5rem;
+    color: var(--neon-yellow);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    text-shadow: var(--glow-yellow);
+}
+
+.mobile-warning-title {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.mobile-warning-message {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+
+.mobile-warning-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mobile-warning-btn {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s, color 0.2s;
+}
+
+.mobile-warning-btn--primary {
+    background-color: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+
+.mobile-warning-btn--primary:hover,
+.mobile-warning-btn--primary:focus-visible {
+    box-shadow: var(--glow-cyan);
+    outline: none;
+}
+
+.mobile-warning-btn--secondary {
+    background-color: transparent;
+    border: 1px solid rgba(199, 125, 255, 0.3);
+    color: var(--text-secondary);
+}
+
+.mobile-warning-btn--secondary:hover,
+.mobile-warning-btn--secondary:focus-visible {
+    color: var(--text-primary);
+    border-color: var(--neon-purple);
+    outline: none;
+}
