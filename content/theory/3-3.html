@@ -1,0 +1,219 @@
+<!-- Fragment: 3.3 O Dó Central e as Regiões do Teclado -->
+
+<div class="topic-preview">
+    <div class="topic-preview-title">Neste Tópico</div>
+    <ul>
+        <li>O que é o Dó central e por que ele serve de referência universal</li>
+        <li>A numeração das oitavas: como dar nome único a cada Dó do teclado</li>
+        <li>A ambiguidade da numeração entre fabricantes (C4, C3 ou C5) e como não se confundir</li>
+        <li>As três regiões do teclado: grave, médio e agudo</li>
+        <li>Como localizar o Dó central em teclados de qualquer tamanho</li>
+    </ul>
+</div>
+
+<h2>Conceito</h2>
+
+<p>Você já sabe nomear as 12 notas (tópico 3.1) e medir a distância entre elas (tópico 3.2). Mas falta resolver um problema prático que surge assim que olhamos para o teclado inteiro: existem <strong>vários</strong> Dós, vários Rés, vários de cada nota, repetidos oitava após oitava. Quando alguém diz "toque um Dó", de qual Dó estamos falando? Este tópico resolve essa ambiguidade e apresenta o ponto de referência mais importante de todo o teclado: o Dó central.</p>
+
+<h3>O problema: qual Dó?</h3>
+
+<p>Como vimos no Módulo 2, o padrão do teclado se repete idêntico em cada oitava. Um teclado de 61 teclas tem cinco Dós; um piano de 88 teclas tem oito. Todos soam "como Dó", mas em alturas diferentes: uns graves, outros agudos. Dizer apenas "Dó" é insuficiente, como dizer "rua Sete" sem informar a cidade. Precisamos de um sobrenome que identifique cada um.</p>
+
+<div class="keyboard-diagram"
+     data-range="C2-C6"
+     data-highlights='[{"note":"C2","color":"cyan","label":"Dó2"},{"note":"C3","color":"cyan","label":"Dó3"},{"note":"C4","color":"root","label":"Dó4"},{"note":"C5","color":"cyan","label":"Dó5"},{"note":"C6","color":"cyan","label":"Dó6"}]'>
+</div>
+<p class="figure-caption">Cinco Dós em alturas diferentes. O Dó4, destacado, é o Dó central, a âncora de referência do sistema.</p>
+
+<h3>A numeração das oitavas</h3>
+
+<p>A solução é numerar as oitavas. Cada vez que passamos por um Dó, começa uma nova oitava, com um número maior conforme subimos (para a direita). A nota recebe o número da oitava à qual pertence: Dó4, Ré4, Mi4, e assim por diante, até o Si4. O Dó seguinte já é Dó5, e o ciclo se reinicia.</p>
+
+<div class="keyboard-diagram"
+     data-range="C4-C5"
+     data-highlights='[{"note":"C4","color":"cyan","label":"Dó4"},{"note":"D4","color":"cyan","label":"Ré4"},{"note":"E4","color":"cyan","label":"Mi4"},{"note":"F4","color":"cyan","label":"Fá4"},{"note":"G4","color":"cyan","label":"Sol4"},{"note":"A4","color":"cyan","label":"Lá4"},{"note":"B4","color":"cyan","label":"Si4"},{"note":"C5","color":"yellow","label":"Dó5"}]'>
+</div>
+<p class="figure-caption">A oitava 4, completa. Todas as notas compartilham o número 4 até que um novo Dó (Dó5) inicie a oitava seguinte.</p>
+
+<p>Esse sistema chama-se <strong>notação científica de altura</strong> (em inglês, <em>scientific pitch notation</em>). Ele é o padrão internacional e o que o Tyghorn Melody utiliza. A nota de referência de todo o sistema é o <strong>Dó central</strong>, também chamado de <strong>Dó4</strong> (ou C4, no sistema alfabético).</p>
+
+<div class="callout callout-info">
+    <div class="callout-title">Definição</div>
+    O <strong>Dó central</strong> (Dó4 / C4) é o Dó que fica aproximadamente no meio de um piano completo. Sua frequência é de cerca de <strong>261,63 Hz</strong>. Ele é a referência a partir da qual todas as outras notas são localizadas e nomeadas.
+</div>
+
+<h3>Por que ele é "central"</h3>
+
+<p>O nome não é arbitrário. Em um piano de 88 teclas, o Dó4 fica quase exatamente no centro físico do instrumento. Mais que isso, ele é o ponto de encontro natural entre as duas mãos do tecladista e entre as duas claves usadas na escrita musical (a clave de Sol, para a região aguda, e a clave de Fá, para a grave). O Dó central é, literalmente, a fronteira entre o "território" da mão direita e o da mão esquerda. Voltaremos a esse papel quando estudarmos leitura de partitura, no tópico 5.2.</p>
+
+<h3>Uma ambiguidade que você precisa conhecer</h3>
+
+<p>Aqui mora uma armadilha que confunde muitos iniciantes, e é melhor enfrentá-la de frente. Embora a notação científica defina o Dó central como Dó4, <strong>nem todos os fabricantes concordam com esse rótulo</strong>. O som é sempre o mesmo (a mesma tecla, 261,63 Hz, identificada internamente pelo número MIDI 60), mas o nome impresso ou exibido varia:</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Sistema / Fabricante</th>
+            <th>Como chama o Dó central</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>Notação científica / ISO / Roland</td><td><strong>Dó4 (C4)</strong> — usado neste site</td></tr>
+        <tr><td>Yamaha</td><td>Dó3 (C3)</td></tr>
+        <tr><td>Alguns softwares de música</td><td>Dó5 (C5)</td></tr>
+    </tbody>
+</table>
+
+<div class="callout callout-warn">
+    <div class="callout-title">Não se assuste com o número</div>
+    Se o seu teclado ou aplicativo mostrar o Dó central como <strong>C3</strong> ou <strong>C5</strong>, ele não está errado: é apenas outra convenção de numeração. O que importa é que se trata da mesma tecla, no mesmo lugar físico, com o mesmo som. O Tyghorn Melody adota <strong>C4</strong>. Quando houver dúvida, lembre-se: o Dó central é o Dó mais próximo do centro do instrumento, não importa o número que apareça na etiqueta.
+</div>
+
+<h3>As regiões do teclado</h3>
+
+<p>Além da numeração precisa, é útil pensar no teclado em três grandes <strong>regiões</strong>, definidas pela altura do som. Elas não têm fronteiras rígidas, mas orientam a forma como pensamos a música:</p>
+
+<ul>
+    <li><strong>Região grave</strong> (à esquerda): sons baixos, profundos, encorpados. É o território típico da mão esquerda, das linhas de baixo e dos fundamentos harmônicos que sustentam a música.</li>
+    <li><strong>Região média</strong> (ao centro, em torno do Dó central): a faixa mais próxima da voz humana. É onde costumam morar as melodias e os acordes principais. A maior parte da música acontece aqui.</li>
+    <li><strong>Região aguda</strong> (à direita): sons altos, brilhantes, penetrantes. Usada para melodias agudas, ornamentos, brilhos e efeitos que se destacam acima do restante.</li>
+</ul>
+
+<div class="keyboard-diagram"
+     data-range="C2-C6"
+     data-highlights='[{"note":"C2","color":"purple","label":"Grave"},{"note":"E2","color":"purple"},{"note":"G2","color":"purple"},{"note":"C4","color":"cyan","label":"Médio"},{"note":"E4","color":"cyan"},{"note":"G4","color":"cyan"},{"note":"C6","color":"yellow","label":"Agudo"},{"note":"E6","color":"yellow"},{"note":"G6","color":"yellow"}]'>
+</div>
+<p class="figure-caption">As três regiões do teclado. As fronteiras são aproximadas: o que importa é a tendência geral grave → médio → agudo, da esquerda para a direita.</p>
+
+<h3>Como achar o Dó central no seu teclado</h3>
+
+<p>Independentemente do tamanho do instrumento, há um método confiável para localizar o Dó central:</p>
+
+<ol>
+    <li>Identifique o <strong>centro físico</strong> aproximado do teclado.</li>
+    <li>Procure o <strong>grupo de 2 teclas pretas</strong> mais próximo desse centro.</li>
+    <li>A tecla branca <strong>imediatamente à esquerda</strong> desse grupo de 2 é o Dó central (ou o Dó mais próximo do centro).</li>
+</ol>
+
+<p>Em um piano de 88 teclas (que vai do Lá0 ao Dó8, como vimos em 2.1), o Dó central é o <strong>quarto Dó contando da esquerda</strong>. Em teclados menores, ele fica naturalmente mais próximo de uma das extremidades, mas a regra do centro continua sendo o ponto de partida mais prático. Muitos fabricantes inclusive posicionam a logomarca ou uma pequena marca exatamente acima do Dó central, justamente por ser a referência mais consultada.</p>
+
+<div class="callout callout-tip">
+    <div class="callout-title">Dica de estudo</div>
+    Acostume-se a usar o Dó central como seu "ponto zero". A maioria dos exercícios, escalas e peças iniciais começa nele ou em torno dele. Saber encontrá-lo instantaneamente, em qualquer teclado, é uma das economias de tempo mais valiosas para quem está começando.
+</div>
+
+<details>
+    <summary>Aprofundamento</summary>
+    <div>
+        <h3>A matemática das oitavas: dobrar e dividir frequências</h3>
+
+        <p>A numeração das oitavas reflete uma relação física exata. Como vimos no tópico 3.2, subir uma oitava significa <strong>dobrar</strong> a frequência. Isso transforma a sequência de Dós em uma progressão geométrica perfeita:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nota</th>
+                    <th>Frequência aproximada</th>
+                    <th>Relação com o Dó central</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Dó2</td><td>65,41 Hz</td><td>um quarto</td></tr>
+                <tr><td>Dó3</td><td>130,81 Hz</td><td>metade</td></tr>
+                <tr><td><strong>Dó4 (central)</strong></td><td><strong>261,63 Hz</strong></td><td><strong>referência</strong></td></tr>
+                <tr><td>Dó5</td><td>523,25 Hz</td><td>o dobro</td></tr>
+                <tr><td>Dó6</td><td>1046,50 Hz</td><td>o quádruplo</td></tr>
+            </tbody>
+        </table>
+
+        <p>Cada Dó tem exatamente o dobro da frequência do Dó uma oitava abaixo. É por isso que todos os Dós soam "como a mesma nota": o ouvido humano percebe a relação 2:1 como uma espécie de equivalência, um mesmo som transportado para outra altura. Esse fenômeno, chamado de equivalência de oitava, é tão universal que aparece em praticamente todas as culturas musicais do mundo.</p>
+
+        <h3>Onde o teclado se situa no espectro audível</h3>
+
+        <p>O ouvido humano saudável percebe frequências de aproximadamente <strong>20 Hz a 20.000 Hz</strong>. Um piano completo cobre uma fatia generosa, mas não a totalidade, dessa faixa: vai do Lá0 (cerca de 27,5 Hz, um grave profundo quase no limite da percepção de altura definida) ao Dó8 (cerca de 4186 Hz, um agudo brilhante). Acima e abaixo desses extremos, os sons existem fisicamente, mas o ouvido tem dificuldade de identificá-los como notas distintas: os graves viram um ronco indefinido, os agudos um assobio. A escolha das 88 teclas, como vimos em 2.1, foi justamente delimitada pela faixa musicalmente útil.</p>
+
+        <h3>A âncora física: o Lá de 440 Hz</h3>
+
+        <p>Vale relembrar o que foi visto em 3.1: embora o Dó central seja a referência conceitual e visual do teclado, a referência <em>física</em> de afinação é outra, o <strong>Lá4 a 440 Hz</strong> (o Lá logo acima do Dó central). É a partir dele que se calcula a frequência de todas as demais notas, incluindo a do próprio Dó central. São duas âncoras complementares: o Dó central orienta a leitura e a localização; o Lá 440 orienta a afinação.</p>
+
+        <h3>A relação com as claves (preview do Módulo 5)</h3>
+
+        <p>O papel "central" do Dó4 fica ainda mais evidente na escrita musical. A partitura para teclado usa duas pautas simultâneas: a de cima, com a clave de Sol, para a mão direita e a região média-aguda; a de baixo, com a clave de Fá, para a mão esquerda e a região grave. O Dó central ocupa uma posição única: ele fica <strong>exatamente entre as duas pautas</strong>, na pequena linha suplementar que as separa. É a nota que pertence a ambos os mundos, a dobradiça entre as duas mãos. Esse posicionamento será detalhado no tópico 5.2.</p>
+    </div>
+</details>
+
+<details>
+    <summary>Contexto Histórico</summary>
+    <div>
+        <h3>Como aprendemos a numerar as oitavas</h3>
+
+        <p>A ideia de dar um "sobrenome" a cada nota para identificar sua oitava parece óbvia hoje, mas a humanidade conviveu por séculos com sistemas ambíguos ou concorrentes. A padronização é relativamente recente.</p>
+
+        <h4>A notação de Helmholtz (séc. XIX)</h4>
+
+        <p>Antes da notação científica, o sistema mais usado na teoria musical foi criado pelo físico alemão <strong>Hermann von Helmholtz</strong> (1821–1894), um dos maiores estudiosos da acústica. Em vez de números, ele usava combinações de maiúsculas, minúsculas e sinais (linhas e vírgulas) para distinguir as oitavas: as oitavas graves usavam letras maiúsculas com vírgulas (C,, C,) e as agudas, letras minúsculas com linhas (c′, c″). Nesse sistema, o Dó central é grafado como <strong>c′</strong> (o "Dó de uma linha"). A notação de Helmholtz ainda aparece em textos de musicologia e organologia, e vale reconhecê-la para não se confundir ao consultar fontes mais antigas ou acadêmicas.</p>
+
+        <h4>A notação científica (séc. XX)</h4>
+
+        <p>A <strong>notação científica de altura</strong>, que numera as oitavas e fixa o Dó central como C4, foi proposta na década de 1930 e ganhou aceitação por ser simples, intuitiva e compatível com o pensamento numérico moderno. Ela define que cada nova oitava começa no Dó (e não no Lá), o que alinha a numeração à percepção visual do teclado, onde o Dó é a âncora mais natural. É hoje o padrão internacional, adotado pela ISO.</p>
+
+        <h4>A confusão da era MIDI (séc. XX–XXI)</h4>
+
+        <p>Quando o protocolo MIDI surgiu, em 1983, ele atribuiu um número a cada tecla, sendo o <strong>número 60</strong> o Dó central. Mas, curiosamente, o padrão MIDI definiu apenas que o número 60 era "um Dó", sem dizer a qual oitava ele pertencia. Coube a cada fabricante decidir o rótulo. Em 1982, a documentação da <strong>Roland</strong> chamou a nota 60 de C4, alinhada à notação científica. A <strong>Yamaha</strong>, por sua vez, optou por chamá-la de C3. Como ambas as empresas foram enormemente influentes, as duas convenções se espalharam e coexistem até hoje, gerando a ambiguidade que você precisa conhecer. Décadas depois, ainda não há uma recomendação oficial unificada. É um raro caso em que a tecnologia, em vez de resolver uma ambiguidade, criou uma nova.</p>
+    </div>
+</details>
+
+<details>
+    <summary>Exercícios</summary>
+    <div>
+        <h3>Verifique sua compreensão</h3>
+
+        <p><strong>1.</strong> Qual é o nome do Dó central na notação científica? E sua frequência aproximada?</p>
+        <details>
+            <summary>Ver resposta</summary>
+            <p><strong>Dó4 (C4)</strong>, com frequência de aproximadamente <strong>261,63 Hz</strong>. É a nota de referência para localizar todas as outras.</p>
+        </details>
+
+        <p><strong>2.</strong> Por que precisamos numerar as oitavas?</p>
+        <details>
+            <summary>Ver resposta</summary>
+            <p>Porque existem vários Dós (e vários de cada nota) ao longo do teclado, em alturas diferentes. O número da oitava funciona como um "sobrenome" que identifica exatamente de qual nota estamos falando: Dó2, Dó4, Dó6, etc.</p>
+        </details>
+
+        <p><strong>3.</strong> Seu teclado mostra o Dó central como "C3". Ele está com defeito ou errado?</p>
+        <details>
+            <summary>Ver resposta</summary>
+            <p><strong>Não.</strong> É apenas outra convenção de numeração (a da Yamaha, por exemplo). A tecla, o som e o número MIDI (60) são exatamente os mesmos. Só o rótulo da oitava muda. O Tyghorn Melody usa C4.</p>
+        </details>
+
+        <p><strong>4.</strong> Quais são as três regiões do teclado e qual o caráter de cada uma?</p>
+        <details>
+            <summary>Ver resposta</summary>
+            <p><strong>Grave</strong> (esquerda): sons baixos e profundos, típicos da mão esquerda e das linhas de baixo. <strong>Média</strong> (centro): faixa próxima da voz humana, onde moram melodias e acordes principais. <strong>Aguda</strong> (direita): sons altos e brilhantes, para melodias agudas e ornamentos.</p>
+        </details>
+
+        <p><strong>5.</strong> Qual é a relação de frequência entre o Dó central (Dó4) e o Dó uma oitava acima (Dó5)?</p>
+        <details>
+            <summary>Ver resposta</summary>
+            <p>O Dó5 tem exatamente o <strong>dobro</strong> da frequência do Dó4 (cerca de 523,25 Hz contra 261,63 Hz). Subir uma oitava sempre dobra a frequência.</p>
+        </details>
+
+        <p><strong>6.</strong> Descreva o método para encontrar o Dó central em qualquer teclado.</p>
+        <details>
+            <summary>Ver resposta</summary>
+            <p>Localize o centro físico do teclado, encontre o grupo de 2 teclas pretas mais próximo desse centro, e o Dó central será a tecla branca imediatamente à esquerda desse grupo.</p>
+        </details>
+
+        <h3>Exercícios práticos</h3>
+
+        <p>Para os exercícios abaixo, é ideal ter um teclado. Sem ele, use os diagramas deste tópico para praticar mentalmente.</p>
+
+        <p><strong>7. Encontre o seu Dó central.</strong> No seu teclado, aplique o método do centro: localize o grupo de 2 pretas mais próximo do meio e identifique o Dó à sua esquerda. Toque-o e memorize sua posição. Se o seu teclado exibe o número da nota, observe qual rótulo ele usa (C3, C4 ou C5). Objetivo: fixar a âncora que servirá de ponto de partida para tudo o que vem a seguir.</p>
+
+        <p><strong>8. Passeio entre as oitavas.</strong> Partindo do Dó central, toque todos os Dós disponíveis, primeiro descendo (Dó3, Dó2...) e depois subindo (Dó5, Dó6...), dizendo o número de cada um em voz alta. Perceba como o som fica mais grave à esquerda e mais agudo à direita, embora todos sejam "Dó". Objetivo: associar número da oitava, posição e altura sonora.</p>
+
+        <p><strong>9. Identifique a região.</strong> Toque uma tecla qualquer ao acaso e diga em voz alta a qual região ela pertence (grave, média ou aguda). Repita várias vezes, variando bastante a posição. Objetivo: desenvolver a percepção rápida de onde cada som se situa no panorama do teclado.</p>
+
+        <p><strong>10. A mesma melodia em três alturas.</strong> Toque uma sequência simples de notas (por exemplo, os três primeiros sons que conseguir) na região média. Em seguida, repita a mesma sequência na região grave e depois na aguda. Perceba como o caráter muda, embora a melodia seja a mesma. Objetivo: sentir, na prática, como cada região colore a música de forma diferente.</p>
+    </div>
+</details>
