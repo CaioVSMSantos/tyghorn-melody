@@ -8,7 +8,7 @@ Aplicativo web para aprendizado de teoria musical e prática no teclado com acom
 
 Tyghorn Melody é uma aplicação web estática para quem quer aprender a tocar teclado. Ela combina uma base de teoria musical com um player de prática no estilo FlowKey/Guitar Hero — notas caem na tela enquanto você toca no teclado MIDI.
 
-Construído com HTML, CSS e JavaScript puros. Sem frameworks, sem dependências externas, sem servidor backend.
+Construído com HTML, CSS e JavaScript. Sem frameworks, sem dependências externas, sem servidor backend.
 
 ## Funcionalidades
 
