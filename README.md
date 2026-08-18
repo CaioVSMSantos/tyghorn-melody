@@ -41,7 +41,7 @@ Construído com HTML, CSS e JavaScript puros. Sem frameworks, sem dependências 
 
 ### GitHub Pages
 
-Acesse diretamente pelo browser — não requer instalação.
+Acesse diretamente pelo browser, não requer instalação.
 
 ### Localmente
 
